@@ -1,0 +1,1021 @@
+/* ============================================================
+   Diários de Bordo — diagramação para impressão / PDF
+   Formato: A5 (148 × 210 mm)
+   Use com Paged.js, WeasyPrint ou Imprimir → Salvar como PDF
+   ============================================================ */
+
+@page {
+  size: A5;
+  margin: 14mm 12mm 18mm;
+  @bottom-center {
+    content: counter(page);
+    font-family: 'Lato', sans-serif;
+    font-size: 7.5pt;
+    font-variant-numeric: tabular-nums;
+    color: #7a7694;
+  }
+}
+
+@page cover {
+  size: A5;
+  margin: 0;
+  background: #fcf9f2;
+  @bottom-center {
+    content: none;
+  }
+}
+
+@page epigraph-full {
+  size: A5;
+  margin: 0;
+  @bottom-center {
+    content: none;
+  }
+}
+
+@page contracapa-full {
+  size: A5;
+  margin: 0;
+  background: #fcf9f2;
+  @bottom-center {
+    content: none;
+  }
+}
+
+/* Utilitários (ativos só na impressão) */
+@media print {
+  .print-break {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .print-hide {
+    display: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  html {
+    font-size: 9pt;
+  }
+
+  body {
+    background: #fff;
+    color: #2c2a4a;
+    line-height: 1.42;
+    font-size: 1rem;
+  }
+
+  /* ── Tipografia padronizada (corpo do livro) ─────────── */
+  p,
+  li,
+  .diary-log,
+  .institutional,
+  .text-card .body,
+  .fabulador,
+  .bio p,
+  .ficha-note,
+  .toc,
+  .toc a {
+    font-size: 1rem;
+    line-height: 1.42;
+  }
+
+  p {
+    margin: 0 0 0.72em;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    margin-bottom: 0.35em;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+    margin: 0 0 0.12em;
+  }
+
+  .section-subtitle {
+    font-size: 0.88rem;
+    margin-bottom: 0.55em;
+  }
+
+  .subhead {
+    font-size: 0.92rem;
+    margin: 1em 0 0.45em;
+  }
+
+  .day-opener {
+    margin: 1.6em 0 0.85em;
+  }
+
+  .day-number {
+    font-size: 0.7rem;
+    padding: 0.32em 0.95em;
+  }
+
+  .day-title {
+    font-size: 1.1rem;
+    margin: 0.35em 0 0.05em;
+  }
+
+  .day-byline {
+    font-size: 0.7rem;
+  }
+
+  .text-card {
+    margin: 1em 0;
+    padding: 0.85em 0 0;
+  }
+
+  .text-card .author {
+    font-size: 0.7rem;
+    margin-bottom: 0.35em;
+  }
+
+  .text-card .body {
+    line-height: 1.44;
+  }
+
+  .fabulador {
+    font-size: 1rem;
+    padding: 0.85em 1.1em;
+    margin: 1em 0;
+  }
+
+  .fabulador .fab-label {
+    font-size: 0.68rem;
+    margin-bottom: 0.35em;
+  }
+
+  .fabulador .fab-note {
+    font-size: 0.78rem;
+    line-height: 1.4;
+    margin: 0 0 0.75em;
+  }
+
+  .fabulador .gem,
+  .fabulador .gem-final {
+    font-size: 0.95rem;
+    padding: 0.65em 0.85em;
+    margin: 0.5em 0;
+  }
+
+  .ficha-note {
+    font-size: 0.92rem;
+    padding: 0.85em 1em;
+  }
+
+  .ficha-note p {
+    margin: 0.45em 0;
+  }
+
+  .toc a {
+    font-size: 0.86rem;
+    padding: 0.55em 0.15em;
+  }
+
+  #sumario .toc a::after {
+    content: target-counter(attr(href), page);
+    flex-shrink: 0;
+    min-width: 1.2em;
+    text-align: right;
+    font-family: var(--sans, 'Lato', sans-serif);
+    font-size: 0.82rem;
+    font-variant-numeric: tabular-nums;
+    color: #55527a;
+  }
+
+  .ai-box h4 {
+    font-size: 0.92rem;
+    margin-bottom: 0.35em;
+  }
+
+  /* ── Paginação ─────────────────────────────────────────── */
+  #capa {
+    page: cover;
+  }
+
+  /* ── Pré-textuais ─────────────────────────────────────── */
+  /* Capa (#capa) — inicia o livro; epígrafe segue sem quebra dupla */
+  #epigrafe-abertura.print-break {
+    break-before: auto;
+    page-break-before: auto;
+  }
+  #ceco.print-break {
+    break-before: auto;
+    page-break-before: auto;
+  }
+
+  #nota-ia.print-break { break-before: auto; page-break-before: auto; }
+  #ficha-tecnica.print-break { break-before: page; page-break-before: always; }
+  #agradecimentos.print-break { break-before: page; page-break-before: always; }
+  #sumario.print-break { break-before: page; page-break-before: always; }
+  #img-saude.print-break { break-before: page; page-break-before: always; }
+  #introducao.print-break { break-before: page; page-break-before: always; }
+
+  /* ── Dia 1 ────────────────────────────────────────────── */
+  #dia1.print-break { break-before: page; page-break-before: always; }
+  #img-combinados.print-break,
+  #img-escrita-mesa.print-break { break-before: page; page-break-before: always; }
+
+  /* ── Dia 2 ────────────────────────────────────────────── */
+  #dia2.print-break { break-before: page; page-break-before: always; }
+
+  /* ── Dia 3 ────────────────────────────────────────────── */
+  #dia3.print-break { break-before: page; page-break-before: always; }
+  #img-ruth-manuscrito.print-break { break-before: page; page-break-before: always; }
+
+  /* ── Dia 4 e encerramento do miolo ──────────────────── */
+  #dia4.print-break { break-before: page; page-break-before: always; }
+  #img-ruth2.print-break { break-before: page; page-break-before: always; }
+  #epigrafe-sem-nome.print-break {
+    break-before: auto;
+    page-break-before: auto;
+  }
+
+  /* ── Pós-textuais ─────────────────────────────────────── */
+  #metodologia.print-break { break-before: page; page-break-before: always; }
+  #equipe.print-break { break-before: page; page-break-before: always; }
+  #img-cecco.print-break { break-before: page; page-break-before: always; }
+  #ceco.print-break { break-before: page; page-break-before: always; }
+  #mobcontent.print-break { break-before: auto; page-break-before: auto; }
+  #mobcontent {
+    margin-top: 1.2em;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  #mobcontent .section-title {
+    font-size: 1rem;
+    margin-bottom: 0.35em;
+  }
+
+  #mobcontent p {
+    font-size: 0.72rem;
+    line-height: 1.35;
+    margin-bottom: 0.5em;
+  }
+
+  #mobcontent .links-list {
+    font-size: 0.68rem;
+    margin-top: 0.4em;
+  }
+
+  #epigrafe-final.print-break { break-before: page; page-break-before: always; }
+  #contracapa.print-break {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  /* Textos dos participantes — cada cartão em página nova */
+  .text-card.print-break {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  /* Fabulador: transcrição e texto final em blocos separados */
+  #fabulador-dia2.print-break { break-before: page; page-break-before: always; }
+  #texto-final-fabulador.print-break { break-before: page; page-break-before: always; }
+
+  /* Imagens soltas e seções de arte */
+  .art-page.print-break {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  /* ── Layout tela → papel ──────────────────────────────── */
+  .cover-page,
+  .epigraph-page {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0;
+    background: #fcf9f2;
+    display: block !important;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .epigraph-page--inline {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 0 1.5em;
+    width: 100%;
+    background: #fcf9f2;
+    display: block !important;
+  }
+
+  .book-cover,
+  .epigraph-page .epigraph,
+  .epigraph-page--inline .epigraph {
+    min-height: 0 !important;
+    height: auto !important;
+    max-width: 100%;
+    width: 100%;
+    padding: 8mm 6mm 6mm;
+    box-shadow: none;
+    border: none;
+    display: block !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Capa — página inteira creme */
+  #capa.cover-page {
+    page: cover;
+    break-after: page;
+    page-break-after: always;
+    background: #fcf9f2 !important;
+    width: 148mm;
+    min-height: 210mm !important;
+    height: 210mm !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #capa .book-cover {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    background: #fcf9f2 !important;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    padding: 10mm 8mm 8mm !important;
+    box-shadow: none !important;
+  }
+
+  #capa .header-container {
+    margin-bottom: 2mm;
+  }
+
+  #capa .illustration-container {
+    margin: 3mm auto;
+    width: 100%;
+    max-width: 72%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #capa .authors-container {
+    margin-bottom: 3mm;
+  }
+
+  #capa .footer-container {
+    margin-top: 2mm;
+  }
+
+  /* Tipografia A5 — capa e epígrafes */
+  .book-cover .main-title {
+    font-size: 1.55rem;
+    letter-spacing: 1px;
+    margin-bottom: 1mm;
+  }
+
+  .book-cover .subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 3mm;
+  }
+
+  .book-cover .color-bar {
+    margin-bottom: 3mm;
+  }
+
+  .book-cover .anthology-text {
+    font-size: 0.58rem;
+    letter-spacing: 2px;
+  }
+
+  .book-cover .authors-list {
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  .book-cover .main-art {
+    display: block;
+    max-height: 78mm;
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .book-cover .institutional-text {
+    font-size: 5.5pt;
+    line-height: 1.35;
+    margin-bottom: 2mm;
+  }
+
+  .book-cover .logos-img {
+    max-height: 16mm;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  /* Epígrafes — página inteira creme, conteúdo centralizado */
+  #epigrafe-abertura.epigraph-page,
+  #epigrafe-sem-nome.epigraph-page,
+  #epigrafe-final.epigraph-page,
+  #introducao > .epigraph-page--inline {
+    page: epigraph-full;
+    width: 148mm;
+    height: 210mm;
+    min-height: 210mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fcf9f2 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  #epigrafe-abertura .epigraph,
+  #epigrafe-sem-nome .epigraph,
+  #epigrafe-final .epigraph,
+  #introducao > .epigraph-page--inline .epigraph {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7mm;
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 12mm 14mm !important;
+    background: transparent !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  #epigrafe-abertura .quote-container,
+  #epigrafe-sem-nome .quote-container,
+  #epigrafe-final .quote-container,
+  #introducao > .epigraph-page--inline .quote-container {
+    margin: 0;
+    max-width: 88%;
+  }
+
+  #epigrafe-abertura .quote-mark,
+  #epigrafe-sem-nome .quote-mark,
+  #epigrafe-final .quote-mark,
+  #introducao > .epigraph-page--inline .quote-mark {
+    font-size: 4.5rem;
+    margin-bottom: -3mm;
+  }
+
+  #epigrafe-abertura .quote-text,
+  #epigrafe-sem-nome .quote-text,
+  #epigrafe-final .quote-text,
+  #introducao > .epigraph-page--inline .quote-text {
+    font-size: 1.08rem;
+    margin-bottom: 4mm;
+  }
+
+  #epigrafe-abertura .quote-author,
+  #epigrafe-sem-nome .quote-author,
+  #epigrafe-final .quote-author,
+  #introducao > .epigraph-page--inline .quote-author {
+    font-size: 0.65rem;
+  }
+
+  #introducao > .eyebrow,
+  #introducao > .section-title,
+  #introducao > .section-subtitle,
+  #introducao > .intro,
+  #introducao > .petal-divider {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Capitular da introdução — WeasyPrint não suporta ::first-letter + float */
+  #introducao .intro .drop-cap {
+    font-size: 2.8em;
+    line-height: 0.82;
+    margin-right: 0.06em;
+    padding: 0.02em 0.1em 0 0;
+  }
+
+  #introducao .intro p:first-of-type {
+    overflow: hidden;
+  }
+
+  /* Epígrafes de página inteira (demais) */
+  .epigraph-page .epigraph {
+    padding: 12mm 8mm;
+  }
+
+  .epigraph .quote-mark {
+    font-size: 5rem;
+  }
+
+  .epigraph .quote-text {
+    font-size: 1.05rem;
+  }
+
+  /* Ficha técnica — compacta para caber em uma página A5 */
+  #ficha-tecnica .eyebrow {
+    font-size: 0.62rem;
+    margin-bottom: 0.2em;
+    letter-spacing: 0.12em;
+  }
+
+  #ficha-tecnica .section-title {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+  }
+
+  #ficha-tecnica dl {
+    margin: 0.5em 0 0;
+  }
+
+  #ficha-tecnica dt {
+    font-size: 0.72rem;
+    margin-top: 0.38em;
+    line-height: 1.18;
+  }
+
+  #ficha-tecnica dt:first-of-type {
+    margin-top: 0;
+  }
+
+  #ficha-tecnica dd {
+    font-size: 0.68rem;
+    line-height: 1.28;
+    margin: 0.06em 0 0;
+  }
+
+  #ficha-tecnica .ficha-site {
+    margin: 0.45em 0 0;
+    padding-top: 0.45em;
+    gap: 0.65em;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  #ficha-tecnica .ficha-qr {
+    width: 22mm;
+  }
+
+  #ficha-tecnica .ficha-site-label {
+    font-size: 0.58rem;
+    margin-bottom: 0.15em;
+  }
+
+  #ficha-tecnica .ficha-site-url {
+    font-size: 0.62rem;
+    line-height: 1.3;
+  }
+
+  #ficha-tecnica .ficha-site-url a {
+    color: #2c2a4a;
+    text-decoration: none;
+  }
+
+  .bio-with-photo .bio-photo {
+    width: 100px;
+    max-height: 125px;
+  }
+
+  .page {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .page > .epigraph-page--inline {
+    margin: 0 0 1.5em;
+    width: 100%;
+    padding: 0;
+  }
+
+  .art-page,
+  .art-page--text {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .art-page img {
+    max-height: 175mm;
+    object-fit: contain;
+  }
+
+  #img-saude {
+    padding: 4mm 0 2mm;
+  }
+
+  #img-saude .eyebrow {
+    margin-bottom: 0.8em;
+  }
+
+  #img-saude .manuscript-figure img {
+    max-height: 148mm;
+  }
+
+  #img-saude .manuscript-figure figcaption {
+    font-size: 7.5pt;
+    line-height: 1.45;
+    margin-top: 0.7em;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Foto da escrita coletiva — compacta, na mesma página do subtítulo */
+  #img-escrita-coletiva {
+    margin: 1.2em 0 0.8em;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  #img-escrita-coletiva img {
+    max-height: 62mm;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #img-escrita-coletiva + .subhead {
+    break-before: avoid;
+    page-break-before: avoid;
+    margin-top: 0.6em;
+  }
+
+  /* Lambe-lambes Stella — compacto, na mesma página do subtítulo */
+  #img-stella-rua {
+    margin: 1.2em 0 0.8em;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  #img-stella-rua img {
+    max-height: 58mm;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #img-stella-rua + .subhead {
+    break-before: avoid;
+    page-break-before: avoid;
+    margin-top: 0.6em;
+  }
+
+  /* Foto Fabulador + nota IA — compactos na mesma página */
+  #img-fabulador {
+    margin: 0 0 0.4em;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  #img-fabulador img {
+    max-height: 40mm;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #nota-ia {
+    padding: 0;
+    margin: 0;
+  }
+
+  #nota-ia {
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
+  #nota-ia .ai-box {
+    margin: 0;
+    padding: 0.45em 0.65em;
+    font-size: 0.78rem;
+    line-height: 1.26;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  #nota-ia .ai-box h4 {
+    font-size: 0.86rem;
+    margin-bottom: 0.28em;
+    line-height: 1.18;
+  }
+
+  #nota-ia .ai-box p {
+    margin-bottom: 0.28em;
+  }
+
+  #nota-ia .ai-box ul {
+    padding-left: 0.9em;
+    margin: 0.15em 0 0.25em;
+  }
+
+  #nota-ia .ai-box li {
+    margin-bottom: 0.22em;
+  }
+
+  /* Foto CECCO — compacta, na mesma página do título */
+  #img-cecco {
+    margin: 0 0 0.5em;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  #img-cecco img {
+    max-height: 55mm;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #ceco {
+    padding: 0;
+    margin: 0;
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
+  #ceco .section-title {
+    margin-top: 0.4em;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Foto metodologia — compacta, na mesma página do título */
+  #img-metodologia {
+    margin: 0 0 0.5em;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  #img-metodologia img {
+    max-height: 52mm;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #metodologia {
+    padding: 0;
+    margin: 0;
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
+  #metodologia .section-title {
+    margin-top: 0.35em;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  #metodologia p {
+    margin-bottom: 0;
+  }
+
+  /* Sobre a mobCONTENT — alinhado à tipografia do livro */
+  #mobcontent {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  #mobcontent .section-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.2em;
+  }
+
+  #mobcontent p {
+    margin-bottom: 0.65em;
+  }
+
+  #mobcontent .links-list {
+    margin: 0.6em 0 0;
+  }
+
+  #mobcontent .links-list li {
+    margin-bottom: 0.3em;
+  }
+
+  /* ── Evitar cortes indesejados ───────────────────────── */
+  .day-opener,
+  .section-title,
+  .subhead,
+  h2,
+  h3,
+  h4 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .ficha-note,
+  .ai-box,
+  .gem,
+  .bio {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .text-card,
+  .fabulador {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  p,
+  li,
+  blockquote {
+    orphans: 3;
+    widows: 3;
+  }
+
+  img {
+    max-width: 100% !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* ── Tipografia e caixas ──────────────────────────────── */
+  .book-cover .main-title,
+  .book-cover .subtitle,
+  .book-cover .authors-list,
+  .epigraph .quote-text,
+  .section-title,
+  .day-title {
+    color: #2b2763 !important;
+  }
+
+  .book-cover .subtitle,
+  .epigraph .quote-author,
+  .section-subtitle {
+    color: #bd5940 !important;
+  }
+
+  .day-opener .day-number {
+    background: none !important;
+    color: #2d2a6e !important;
+    border: 1px solid #2d2a6e;
+    box-shadow: none;
+  }
+
+  .text-card,
+  .fabulador,
+  .ficha-note,
+  .ai-box,
+  .gem,
+  .gem-final {
+    box-shadow: none;
+    border-color: #c9bfa3;
+  }
+
+  .fabulador {
+    background: #fdf9ef;
+  }
+
+  /* ── Links ────────────────────────────────────────────── */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .links-list a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #555;
+  }
+
+  #contracapa.back-cover {
+    page: contracapa-full;
+    break-after: auto;
+    page-break-after: auto;
+    background: #fcf9f2 !important;
+    width: 148mm;
+    min-height: 210mm !important;
+    height: 210mm !important;
+    padding: 13mm 12mm 10mm !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  #contracapa .back-cover-inner {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+    height: 100%;
+  }
+
+  #contracapa .back-cover-main {
+    flex: 1 1 auto;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.1em;
+    padding: 2mm 1mm 1mm;
+  }
+
+  #contracapa .back-cover-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    margin: 0;
+  }
+
+  #contracapa .back-cover-title {
+    font-size: 1.45rem;
+    margin: 0;
+    line-height: 1.12;
+  }
+
+  #contracapa .back-cover-dash-row {
+    margin: 0;
+    gap: 4px;
+  }
+
+  #contracapa .back-cover-dash {
+    width: 11px;
+    height: 3.5px;
+  }
+
+  #contracapa .back-cover-question {
+    font-size: 0.92rem;
+    margin: 0 auto;
+    padding: 0;
+    line-height: 1.45;
+    max-width: 92%;
+  }
+
+  #contracapa .back-cover-body {
+    max-width: 100%;
+    padding: 0 0.5mm;
+  }
+
+  #contracapa .back-cover-body p {
+    font-size: 0.88rem;
+    line-height: 1.44;
+    margin-bottom: 0.72em;
+    text-indent: 1.6em;
+  }
+
+  #contracapa .back-cover-epigraph {
+    flex-shrink: 0;
+    margin-top: auto;
+    padding-top: 4mm;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  #contracapa .back-cover-epigraph .quote-mark {
+    font-size: 1.75rem;
+    margin-bottom: -0.5mm;
+  }
+
+  #contracapa .back-cover-epigraph .quote-text {
+    font-size: 0.82rem;
+    line-height: 1.38;
+    margin-bottom: 0.4em;
+  }
+
+  #contracapa .back-cover-epigraph .quote-author {
+    font-size: 0.62rem;
+  }
+
+  #contracapa .back-cover-epigraph .color-bar {
+    gap: 4px;
+  }
+
+  #contracapa .back-cover-epigraph .dash {
+    width: 11px;
+    height: 3px;
+  }
+
+  footer.colophon {
+    display: none !important;
+  }
+}

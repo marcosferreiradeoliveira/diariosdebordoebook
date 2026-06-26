@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Diários de Bordo — Fabulações e Travessias</title>
-<meta name="description" content="Antologia coletiva de contos e poemas — Fabulações e Travessias. Projeto literário de formação no CECCO Pedra Branca.">
+<meta name="description" content="Coletânea de contos e poemas — Fabulações e Travessias. Projeto literário de formação no CECCO Pedra Branca.">
 <link rel="icon" type="image/png" sizes="32x32" href="Assets/favicon-32.png">
 <link rel="icon" type="image/png" href="Assets/favicon.png">
 <link rel="apple-touch-icon" href="Assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Diários de Bordo — Fabulações e Travessias">
-<meta property="og:description" content="Antologia coletiva de contos e poemas — Fabulações e Travessias.">
+<meta property="og:description" content="Coletânea de contos e poemas — Fabulações e Travessias.">
 <meta property="og:url" content="https://marcosferreiradeoliveira.github.io/diariosdebordoebook/">
 <meta property="og:image" content="https://marcosferreiradeoliveira.github.io/diariosdebordoebook/Assets/preview.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Diários de Bordo — Fabulações e Travessias">
-<meta name="twitter:description" content="Antologia coletiva de contos e poemas — Fabulações e Travessias.">
+<meta name="twitter:description" content="Coletânea de contos e poemas — Fabulações e Travessias.">
 <meta name="twitter:image" content="https://marcosferreiradeoliveira.github.io/diariosdebordoebook/Assets/preview.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,6 +46,7 @@
     font-family:var(--sans);
     line-height:1.7;
     font-size:17px;
+    position:relative;
   }
 
   .page{
@@ -89,10 +90,48 @@
     width:100%;
     height:auto;
   }
+  .art-page figure{
+    margin:0;
+  }
+  .art-page figcaption{
+    font-family:var(--sans);
+    font-size:.82rem;
+    line-height:1.55;
+    color:var(--brown);
+    font-style:italic;
+    margin:.9em auto 0;
+    max-width:36em;
+    text-align:center;
+    padding:0 7vw;
+  }
   .art-page--text{
     max-width:760px;
     margin:0 auto;
     padding:0 7vw;
+  }
+  .art-page--figure{
+    max-width:760px;
+    margin:0 auto;
+    padding:2.5em 7vw 3em;
+  }
+  .manuscript-figure{
+    margin:0;
+    text-align:center;
+  }
+  .manuscript-figure img{
+    display:block;
+    width:100%;
+    height:auto;
+    margin:0 auto;
+  }
+  .manuscript-figure figcaption{
+    font-family:var(--sans);
+    font-size:.82rem;
+    line-height:1.55;
+    color:var(--brown);
+    font-style:italic;
+    margin:.9em auto 0;
+    max-width:36em;
   }
 
   /* ---------- capa (HTML) ---------- */
@@ -100,22 +139,23 @@
     background-color:#fcf9f2;
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:stretch;
     min-height:100vh;
-    padding:20px;
+    width:100%;
+    padding:0;
   }
   .book-cover{
     background-color:#fcf9f2;
     width:100%;
     max-width:600px;
-    min-height:900px;
+    min-height:100vh;
     padding:60px 40px 40px;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:space-between;
     text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    box-shadow:none;
   }
   .book-cover .header-container{width:100%;}
   .book-cover .main-title{
@@ -162,16 +202,19 @@
     margin:0;
   }
   .book-cover .illustration-container{
-    margin:40px 0;
+    margin:40px auto;
     display:flex;
     justify-content:center;
     align-items:center;
+    width:100%;
     max-width:80%;
   }
   .book-cover .main-art{
+    display:block;
     max-width:100%;
     height:auto;
     max-height:320px;
+    margin:0 auto;
   }
   .book-cover .authors-container{
     width:100%;
@@ -240,8 +283,12 @@
     display:flex;
     flex-direction:column;
     align-items:center;
+    margin:0;
+    border:none;
+    padding:0;
   }
-  .epigraph .quote-mark{
+  .epigraph .quote-container::before{
+    content:"\201C";
     font-family:var(--serif);
     font-size:7.5rem;
     color:#ebd9c4;
@@ -310,6 +357,153 @@
   }
   .epigraph-page--inline .quote-container{margin:0;}
 
+  /* ---------- contracapa ---------- */
+  .back-cover{
+    background-color:#fcf9f2;
+    display:flex;
+    justify-content:center;
+    align-items:stretch;
+    min-height:100vh;
+    width:100%;
+    padding:48px 28px 36px;
+  }
+  .back-cover-inner{
+    width:100%;
+    max-width:650px;
+    margin:0 auto;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    min-height:calc(100vh - 84px);
+  }
+  .back-cover-main{
+    flex:1 1 auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:1.1em;
+    padding:1.5em 0 1em;
+  }
+  .back-cover-eyebrow{
+    font-family:var(--sans);
+    font-size:.78rem;
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    color:#777;
+    font-weight:700;
+    margin:0;
+  }
+  .back-cover-title{
+    font-family:var(--serif);
+    font-size:2.15rem;
+    font-weight:400;
+    color:#b04a33;
+    margin:0;
+    line-height:1.15;
+  }
+  .back-cover-dash-row{
+    display:flex;
+    justify-content:center;
+    gap:5px;
+    margin:0;
+  }
+  .back-cover-dash{
+    display:inline-block;
+    width:12px;
+    height:4px;
+    border-radius:1px;
+  }
+  .back-cover-dash:nth-child(1){background:#1a365d;}
+  .back-cover-dash:nth-child(2){background:#2b6cb0;}
+  .back-cover-dash:nth-child(3){background:#dd6b20;}
+  .back-cover-dash:nth-child(4){background:#9b2c2c;}
+  .back-cover-dash:nth-child(5){background:#b83280;}
+  .back-cover-dash:nth-child(6){background:#6b46c1;}
+  .back-cover-dash:nth-child(7){background:#ecc94b;}
+  .back-cover-dash:nth-child(8){background:#2f855a;}
+  .back-cover-question{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:1.12rem;
+    color:#4a3763;
+    margin:0 auto;
+    max-width:34em;
+    line-height:1.5;
+    padding:0 .5em;
+  }
+  .back-cover-body{
+    text-align:justify;
+    max-width:36em;
+    margin:0 auto;
+  }
+  .back-cover-body p{
+    font-family:var(--serif);
+    font-size:1.02rem;
+    color:#444;
+    line-height:1.58;
+    text-indent:2em;
+    margin:0 0 1.05em;
+  }
+  .back-cover-epigraph{
+    margin-top:auto;
+    padding-top:1.8em;
+    max-width:34em;
+    margin-left:auto;
+    margin-right:auto;
+    width:100%;
+  }
+  .back-cover-epigraph .color-bar{
+    display:flex;
+    justify-content:center;
+    gap:6px;
+    margin:0;
+  }
+  .back-cover-epigraph .dash{
+    width:14px;
+    height:4px;
+    border-radius:1px;
+  }
+  .back-cover-epigraph .d1{background-color:#2b2763;}
+  .back-cover-epigraph .d2{background-color:#3fa1d6;}
+  .back-cover-epigraph .d3{background-color:#cc6353;}
+  .back-cover-epigraph .d4{background-color:#7d4427;}
+  .back-cover-epigraph .d5{background-color:#be3e82;}
+  .back-cover-epigraph .d6{background-color:#b52c67;}
+  .back-cover-epigraph .d7{background-color:#f29e38;}
+  .back-cover-epigraph .d8{background-color:#ffd400;}
+  .back-cover-epigraph .d9{background-color:#388049;}
+  .back-cover-epigraph .quote-container{
+    margin:1.1em auto;
+    text-align:center;
+    border:none;
+    padding:0;
+  }
+  .back-cover-epigraph .quote-container::before{
+    content:"\201C";
+    font-family:var(--serif);
+    font-size:3rem;
+    line-height:1;
+    color:var(--crimson);
+    display:block;
+    margin-bottom:-.15em;
+  }
+  .back-cover-epigraph .quote-text{
+    font-family:var(--serif);
+    font-size:1.05rem;
+    line-height:1.45;
+    color:var(--ink);
+    margin:0 0 .6em;
+  }
+  .back-cover-epigraph .quote-author{
+    font-family:var(--sans);
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--brown);
+  }
+  .back-cover-epigraph .em-dash{font-weight:400;}
+
   /* ---------- generic section heading ---------- */
   .section-title{
     font-family:var(--serif);
@@ -368,15 +562,58 @@
     font-size:.95rem;
   }
   .ficha-note p{margin:.6em 0;}
+  .ficha-site{
+    display:flex;
+    align-items:center;
+    gap:1.2em;
+    margin:1.6em 0 0;
+    padding-top:1.1em;
+    border-top:1px solid #e9dfc8;
+  }
+  .ficha-qr{
+    width:92px;
+    height:auto;
+    flex-shrink:0;
+    display:block;
+  }
+  .ficha-site-link{
+    display:flex;
+    align-items:center;
+    gap:1.2em;
+    color:inherit;
+    text-decoration:none;
+  }
+  .ficha-site-link:focus-visible{
+    outline:3px solid var(--turquoise);
+    outline-offset:4px;
+    border-radius:4px;
+  }
+  .ficha-site-url-text{
+    color:var(--magenta);
+    word-break:break-all;
+    font-size:.84rem;
+    line-height:1.45;
+  }
+  .ficha-site-label{
+    display:block;
+    font-family:var(--sans);
+    font-size:.68rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--brown);
+    margin-bottom:.3em;
+  }
 
   /* ---------- sumário ---------- */
   .toc{
     list-style:none;
     margin:0;
     padding:0;
+    counter-reset:toc;
   }
   .toc li{
     border-bottom:1px solid #e6dcc6;
+    counter-increment:toc;
   }
   .toc a{
     display:flex;
@@ -387,7 +624,13 @@
     color:var(--ink);
     font-family:var(--serif);
     font-size:1.05rem;
-    gap:1em;
+    gap:.4em;
+  }
+  .toc .toc-label::before{
+    content:counter(toc) ". ";
+    font-family:var(--sans);
+    font-weight:700;
+    font-variant-numeric:tabular-nums;
   }
   .toc a:hover{color:var(--crimson);}
   .toc .toc-dot{
@@ -400,7 +643,7 @@
 
   /* ---------- body copy ---------- */
   p{margin:0 0 1.1em;}
-  .intro p:first-of-type::first-letter{
+  .intro .drop-cap{
     font-family:var(--serif);
     font-weight:700;
     font-size:3.4em;
@@ -408,6 +651,9 @@
     float:left;
     padding:.04em .12em 0 0;
     color:var(--navy);
+  }
+  .intro p:first-of-type{
+    overflow:hidden;
   }
 
   .petal-divider{
@@ -488,6 +734,9 @@
     padding:1.8em 0 0;
     border-top:2px solid #e6dcc6;
   }
+  .text-card .author cite{
+    font-style:normal;
+  }
   .text-card .author{
     font-family:var(--sans);
     font-weight:700;
@@ -530,7 +779,14 @@
     text-transform:uppercase;
     font-size:.75rem;
     color:var(--green);
-    margin-bottom:1em;
+    margin-bottom:.55em;
+  }
+  .fabulador .fab-note{
+    font-family:var(--sans);
+    font-size:.78rem;
+    line-height:1.5;
+    color:var(--brown);
+    margin:0 0 1.1em;
   }
   .fabulador .prompt{
     font-style:italic;
@@ -574,7 +830,7 @@
   .bio{
     margin:2em 0;
   }
-  .bio h4{
+  .bio h3{
     font-family:var(--serif);
     color:var(--navy);
     margin:0 0 .6em;
@@ -611,6 +867,51 @@
   .links-list a{color:var(--turquoise); text-decoration:none; word-break:break-all;}
   .links-list a:hover{text-decoration:underline;}
 
+  /* ---------- acessibilidade ---------- */
+  .skip-link{
+    position:absolute;
+    left:-9999px;
+    top:0;
+    z-index:1000;
+    padding:.75em 1.25em;
+    background:var(--navy);
+    color:#fff;
+    font-family:var(--sans);
+    font-size:.95rem;
+    text-decoration:none;
+    border-radius:0 0 4px 0;
+  }
+  .skip-link:focus{
+    left:0;
+    outline:3px solid var(--turquoise);
+    outline-offset:2px;
+  }
+  a:focus-visible{
+    outline:3px solid var(--turquoise);
+    outline-offset:2px;
+  }
+  .toc a:focus-visible{
+    border-radius:2px;
+  }
+  .visually-hidden{
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{
+      animation-duration:0.01ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:0.01ms !important;
+      scroll-behavior:auto !important;
+    }
+  }
 
   footer.colophon{
     text-align:center;
@@ -619,29 +920,28 @@
     padding:3em 0 4em;
   }
 
-  @media (max-width:600px){
+  @media screen and (max-width:600px){
     body{font-size:16px;}
     .section-title{font-size:1.5rem;}
   }
-
-  @media print{
-    .day-opener .day-number{background:none;color:var(--navy);border:1px solid var(--navy);}
-  }
 </style>
+<link rel="stylesheet" href="print.css" media="print">
 </head>
 <body>
+
+<a class="skip-link" href="#conteudo-principal">Ir para o conteúdo</a>
 
 <!-- ============================================================ -->
 <!-- CAPA -->
 <!-- ============================================================ -->
-<section class="cover-page">
+<section class="cover-page" id="capa" aria-label="Capa">
   <div class="book-cover">
 
     <div class="header-container">
       <h1 class="main-title">Diários de Bordo</h1>
       <h2 class="subtitle">Fabulações e Travessias</h2>
 
-      <div class="color-bar">
+      <div class="color-bar" aria-hidden="true">
         <div class="dash d1"></div>
         <div class="dash d2"></div>
         <div class="dash d3"></div>
@@ -650,24 +950,24 @@
         <div class="dash d6"></div>
       </div>
 
-      <p class="anthology-text">Antologia Coletiva de Contos e Poemas</p>
+      <p class="anthology-text">Coletânea de Contos e Poemas</p>
     </div>
 
     <div class="illustration-container">
-      <img class="main-art" src="Assets/Flor.png" alt="Ilustração de flor multicolorida tipo Estrelícia">
+      <img class="main-art" src="Assets/Flor.png" alt="Ilustração da capa por César Medeiros: flor multicolorida em estilo estrelícia.">
     </div>
 
     <div class="authors-container">
       <p class="authors-list">
-        Adilson Tiamo <span class="bullet-separator">•</span>
-        Adina dos Santos <span class="bullet-separator">•</span>
+        Adilson Tiamo <span class="bullet-separator" aria-hidden="true">•</span>
+        Adina Aparecida <span class="bullet-separator" aria-hidden="true">•</span>
         César Medeiros<br>
-        Danielle Izidoro <span class="bullet-separator">•</span>
-        Patrício Ruth <span class="bullet-separator">•</span>
+        Daniele Isidoro <span class="bullet-separator" aria-hidden="true">•</span>
+        Patrícia Ruth <span class="bullet-separator" aria-hidden="true">•</span>
         Vera Lúcia
       </p>
 
-      <div class="color-bar" style="margin-top:25px;margin-bottom:0;">
+      <div class="color-bar" aria-hidden="true" style="margin-top:25px;margin-bottom:0;">
         <div class="dash d1"></div>
         <div class="dash d2"></div>
         <div class="dash d3"></div>
@@ -683,7 +983,7 @@
       </p>
 
       <div class="logos-section">
-        <img class="logos-img" src="Assets/logos.png" alt="Patrocínio: Governo do Estado do Rio de Janeiro e Secretaria de Cultura e Economia Criativa. Realização: MOB.">
+        <img class="logos-img" src="Assets/Apoio2.png" alt="Patrocínio: Governo do Estado do Rio de Janeiro e Secretaria de Cultura e Economia Criativa. Realização: MOB. Apoio: BRASS, CECCO Pedra Branca, Museu Bispo do Rosário, Prefeitura Rio Saúde e SUS.">
       </div>
     </div>
 
@@ -693,10 +993,10 @@
 <!-- ============================================================ -->
 <!-- EPÍGRAFE -->
 <!-- ============================================================ -->
-<section class="epigraph-page">
+<section class="epigraph-page print-break" id="epigrafe-abertura" aria-label="Epígrafe de abertura">
   <div class="epigraph">
 
-    <div class="color-bar">
+    <div class="color-bar" aria-hidden="true">
       <div class="dash d1"></div>
       <div class="dash d2"></div>
       <div class="dash d3"></div>
@@ -708,17 +1008,14 @@
       <div class="dash d9"></div>
     </div>
 
-    <div class="quote-container">
-      <span class="quote-mark">&ldquo;</span>
+    <blockquote class="quote-container" cite="https://pt.wikipedia.org/wiki/Stella_do_Patroc%C3%ADnio">
       <p class="quote-text">
         A realidade é essa folha esse banco essa terra essa árvore, é esse prédio de dois andares essas roupas estendidas na muralha.
       </p>
-      <div class="quote-author">
-        <span class="em-dash">—</span> Stella do Patrocínio
-      </div>
-    </div>
+      <footer class="quote-author">Stella do Patrocínio</footer>
+    </blockquote>
 
-    <div class="color-bar">
+    <div class="color-bar" aria-hidden="true">
       <div class="dash d1"></div>
       <div class="dash d2"></div>
       <div class="dash d3"></div>
@@ -733,14 +1030,16 @@
   </div>
 </section>
 
-<div class="page">
-  <div class="dash-row"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<div class="page print-hide">
+  <div class="dash-row" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
 </div>
+
+<main id="conteudo-principal">
 
 <!-- ============================================================ -->
 <!-- FICHA TÉCNICA -->
 <!-- ============================================================ -->
-<div class="page ficha" id="ficha-tecnica">
+<div class="page ficha print-break" id="ficha-tecnica">
   <p class="eyebrow">Diários de Bordo</p>
   <h2 class="section-title">Ficha Técnica</h2>
 
@@ -752,7 +1051,7 @@
     <dd>Marcos Ferreira</dd>
 
     <dt>Coordenação e Preparação Editorial</dt>
-    <dd>Diana de Hollanda Cavalcanti</dd>
+    <dd>Diana de Hollanda</dd>
 
     <dt>Oficineira e Facilitação Psicossocial</dt>
     <dd>Victória Benfica Marra Pasqual</dd>
@@ -761,7 +1060,7 @@
     <dd>Mário Pragmácio</dd>
 
     <dt>Apoio Técnico e Integração de Serviço</dt>
-    <dd>Danielle Izidoro</dd>
+    <dd>Daniele Isidoro</dd>
 
     <dt>Desenvolvimento do Aplicativo (Fabulador)</dt>
     <dd>Equipe de Engenharia mobCONTENT</dd>
@@ -770,11 +1069,19 @@
     <dd>César Medeiros</dd>
 
     <dt>Autores Coletivos (Participantes da Oficina)</dt>
-    <dd>Adina Aparecida, Adilson Tiamo, César Medeiros, Danielle Izidoro, Diana de Holanda, Marcos Ferreira, Patrícia Ruth, Vera Lúcia, Victória Pasqual e uma participante que solicitou a preservação de sua identidade.</dd>
+    <dd>Adina Aparecida, Adilson Tiamo, César Medeiros, Daniele Isidoro, Patrícia Ruth, Vera Lúcia e uma participante que solicitou a preservação de sua identidade.</dd>
   </dl>
 
-  <div class="ficha-note">
-    <p><strong>Agradecimentos.</strong> Agradecemos profundamente ao Centro de Cultura e Convivência Pedra Branca e ao Museu Bispo do Rosário de Arte Contemporânea, cuja parceria e acolhimento ético foram fundamentais para a existência deste projeto. Estendemos nossa gratidão a Rodrigo Sánchez e a toda a equipe multidisciplinar e aos profissionais da Área Programática 4.0 (AP 4.0) de Jacarepaguá.</p>
+  <div class="ficha-site">
+    <a class="ficha-site-link" href="https://diarios-de-bordo-site.vercel.app/" aria-label="Site do projeto Diários de Bordo">
+      <img class="ficha-qr" src="Assets/qr.png" alt="">
+      <span class="ficha-site-label">Site</span>
+      <span class="ficha-site-url-text">diarios-de-bordo-site.vercel.app</span>
+    </a>
+  </div>
+
+  <div class="ficha-note print-break" id="agradecimentos">
+    <p><strong>Agradecimentos.</strong> Agradecemos profundamente ao CECCO Pedra Branca e ao Museu Bispo do Rosário de Arte Contemporânea, cuja parceria e acolhimento ético foram fundamentais para a existência deste projeto. Estendemos nossa gratidão a Rodrigo Sánchez e a toda a equipe multidisciplinar e aos profissionais da Área Programática 4.0 (AP 4.0) de Jacarepaguá.</p>
     <p>Dedicamos um agradecimento especial a todos os profissionais que trabalham diariamente na reconstrução dos sentidos de cuidado, atuando na linha de frente a partir dos ideais da luta antimanicomial e da Reforma Psiquiátrica. É através do compromisso de cada um de vocês que a liberdade, a arte e o afeto se consolidam como pilares indispensáveis e inegociáveis do cuidado psicossocial.</p>
   </div>
 </div>
@@ -782,31 +1089,43 @@
 <!-- ============================================================ -->
 <!-- SUMÁRIO -->
 <!-- ============================================================ -->
-<div class="page" id="sumario">
+<div class="page print-break" id="sumario">
+  <nav aria-label="Sumário">
   <h2 class="section-title">Sumário</h2>
   <ul class="toc">
-    <li><a href="#ficha-tecnica"><span>Ficha Técnica</span></a></li>
-    <li><a href="#introducao"><span>Introdução — A Bússola e o Mapa</span></a></li>
-    <li><a href="#nota-ia"><span>Nota sobre o Uso da IA: O Fabulador</span></a></li>
-    <li><a href="#dia1"><span>Dia 1 — O Primeiro Encontro</span></a></li>
-    <li><a href="#dia2"><span>Dia 2 — Respirando e Fabulando</span></a></li>
-    <li><a href="#dia3"><span>Dia 3 — Toda Vida Dá um Livro</span></a></li>
-    <li><a href="#dia4"><span>Dia 4 — Escolhas, Polifonias e Continuidade</span></a></li>
-    <li><a href="#metodologia"><span>Sobre o Projeto e Metodologia</span></a></li>
-    <li><a href="#equipe"><span>Equipe de Condução</span></a></li>
-    <li><a href="#ceco"><span>O Centro de Cultura e Convivência Pedra Branca</span></a></li>
-    <li><a href="#mobcontent"><span>Sobre a mobCONTENT</span></a></li>
-    <li><a href="#contracapa"><span>Contracapa</span></a></li>
+    <li><a href="#ficha-tecnica"><span class="toc-label">Ficha Técnica</span><span class="toc-dot" aria-hidden="true"></span></a></li>
+    <li><a href="#introducao-texto"><span class="toc-label">Introdução — A Bússola e o Mapa</span><span class="toc-dot" aria-hidden="true"></span></a></li>
+    <li><a href="#nota-ia"><span class="toc-label">Nota sobre o Uso da Inteligência Artificial: O Fabulador</span><span class="toc-dot" aria-hidden="true"></span></a></li>
+    <li><a href="#dia1"><span class="toc-label">Dia 1 — O Primeiro Encontro</span><span class="toc-dot" aria-hidden="true"></span></a></li>
+    <li><a href="#dia2"><span class="toc-label">Dia 2 — Respirando e Fabulando</span><span class="toc-dot" aria-hidden="true"></span></a></li>
+    <li><a href="#dia3"><span class="toc-label">Dia 3 — Toda Vida Dá um Livro</span><span class="toc-dot" aria-hidden="true"></span></a></li>
+    <li><a href="#dia4"><span class="toc-label">Dia 4 — Escolhas, Polifonias e Continuidade</span><span class="toc-dot" aria-hidden="true"></span></a></li>
+    <li><a href="#metodologia"><span class="toc-label">Sobre o Projeto e Metodologia</span><span class="toc-dot" aria-hidden="true"></span></a></li>
+    <li><a href="#equipe"><span class="toc-label">Equipe de Condução</span><span class="toc-dot" aria-hidden="true"></span></a></li>
+    <li><a href="#ceco"><span class="toc-label">CECCO Pedra Branca</span><span class="toc-dot" aria-hidden="true"></span></a></li>
+    <li><a href="#mobcontent"><span class="toc-label">Sobre a mobCONTENT</span><span class="toc-dot" aria-hidden="true"></span></a></li>
   </ul>
+  </nav>
 </div>
+
+<!-- ============================================================ -->
+<!-- PRÉVIA — PÁGINA MANUSCRITA DA OFICINA -->
+<!-- ============================================================ -->
+<section class="page art-page art-page--figure print-break" id="img-saude">
+  <p class="eyebrow">Do caderno da oficina</p>
+  <figure class="manuscript-figure">
+    <img src="Assets/saude.png" alt="" loading="lazy" decoding="async">
+    <figcaption>Página original de diário de bordo, com texto manuscrito, colagem e recortes <em>MAGIA</em> e <em>SAÚDE</em>. As páginas seguintes reúnem os textos nascidos desse processo coletivo de escrita.</figcaption>
+  </figure>
+</section>
 
 <!-- ============================================================ -->
 <!-- INTRODUÇÃO -->
 <!-- ============================================================ -->
-<div class="page" id="introducao">
-  <section class="epigraph-page epigraph-page--inline">
+<div class="page print-break" id="introducao">
+  <section class="epigraph-page epigraph-page--inline" aria-label="Epígrafe">
     <div class="epigraph">
-      <div class="color-bar">
+      <div class="color-bar" aria-hidden="true">
         <div class="dash d1"></div>
         <div class="dash d2"></div>
         <div class="dash d3"></div>
@@ -818,17 +1137,14 @@
         <div class="dash d9"></div>
       </div>
 
-      <div class="quote-container">
-        <span class="quote-mark">&ldquo;</span>
+      <blockquote class="quote-container" cite="https://pt.wikipedia.org/wiki/Stella_do_Patroc%C3%ADnio">
         <p class="quote-text">
-          A realidade é essa folha esse banco essa terra essa árvore, é esse prédio de dois andares essas roupas estendidas na muralha.
+          Quem vence um belo é um belo, quem vence o saúde é outra saúde, quem vence o normal é outro normal, quem vence um cientista é outro cientista.
         </p>
-        <div class="quote-author">
-          <span class="em-dash">—</span> Stella do Patrocínio
-        </div>
-      </div>
+        <footer class="quote-author">Stella do Patrocínio</footer>
+      </blockquote>
 
-      <div class="color-bar">
+      <div class="color-bar" aria-hidden="true">
         <div class="dash d1"></div>
         <div class="dash d2"></div>
         <div class="dash d3"></div>
@@ -842,39 +1158,45 @@
     </div>
   </section>
 
-  <p class="eyebrow">Introdução</p>
+  <p class="eyebrow" id="introducao-texto">Introdução</p>
   <h2 class="section-title">A Bússola e o Mapa</h2>
   <p class="section-subtitle">Como nasceu este Diário de Bordo — Marcos Ferreira</p>
 
   <div class="intro">
-    <p>Este livro eletrônico é o porto de chegada de uma travessia literária que aconteceu entre os meses de março e abril de 2026. Ao longo de cinco encontros semanais, o Centro de Cultura e Convivência da Pedra Branca (CECCO), localizado em Jacarepaguá, transformou-se em um laboratório de experimentação, afeto e escrita. O projeto "Diários de Bordo: Projetos Literários de Formação" nasceu com um propósito muito claro: usar a literatura e a criação ficcional não como ferramentas de diagnóstico clínico, mas como caminhos para a liberdade artística, a expressão e o bem-estar de pessoas em situação de vulnerabilidade psicossocial, que requerem atenção, escuta e cuidado singular.</p>
+    <p><span class="drop-cap">E</span>ste livro eletrônico é o porto de chegada de uma travessia literária que aconteceu entre os meses de março e abril de 2026. Ao longo de cinco encontros semanais, o CECCO Pedra Branca, localizado em Jacarepaguá, transformou-se em um laboratório de experimentação, afeto e escrita. O projeto "Diários de Bordo: Projetos Literários de Formação" nasceu com um propósito muito claro: usar a literatura e a criação ficcional não como ferramentas de diagnóstico clínico, mas como caminhos para a liberdade artística, a expressão e o bem-estar de pessoas em situação de vulnerabilidade psicossocial, que requerem atenção, escuta e cuidado singular.</p>
 
-    <p>A escolha do território carrega uma importância simbólica profunda. A região onde o CECCO atua foi, historicamente, um cenário de isolamento e lógica manicomial. Hoje, graças às conquistas do Movimento Antimanicomial e à Reforma Psiquiátrica, as paredes que antes simbolizavam o aprisionamento e a exclusão deram lugar a um espaço pulsante de arte, convivência e cultura. Onde antes havia o silenciamento e o sofrimento, hoje floresce a palavra viva.</p>
+    <p>A escolha do território carrega uma importância simbólica profunda. A região onde o CECCO Pedra Branca atua foi, historicamente, um cenário de isolamento e lógica manicomial. Hoje, graças às conquistas do Movimento Antimanicomial e à Reforma Psiquiátrica, as paredes que antes simbolizavam o aprisionamento e a exclusão deram lugar a um espaço pulsante de arte, convivência e cultura. Onde antes havia o silenciamento e o sofrimento, hoje floresce a palavra viva.</p>
 
     <p>Na prática, a dinâmica da oficina seguiu a lógica da fabulação. Em vez de propor um diário literal sobre a rotina ou as dores, os participantes foram convidados a transformar sentimentos e vivências em metáforas, enredos e personagens. Esse distanciamento poético funcionou como uma proteção ética e, ao mesmo tempo, um passaporte para a imaginação: ao criar uma história ficcional, o autor ganha a liberdade de explorar o mundo sem expor sua intimidade.</p>
 
     <p>A maior parte dessa jornada aconteceu de forma profundamente analógica — no calor do papel, da caneta, da conversa olho no olho e da troca respeitosa entre o grupo. No entanto, o projeto guardou espaço para um experimento inédito: em duas sessões especiais, introduzimos uma ferramenta de Inteligência Artificial, batizada de Fabulador, para atuar como um apoio criativo. Longe de ser o foco central, o Fabulador serviu como um co-piloto discreto e sem julgamentos, acionado em momentos estratégicos para traduzir sentimentos complexos em imagens visuais ou auxiliar na arquitetura inicial de algum personagem. Foi uma experiência que uniu o afeto humano ao suporte tecnológico, provando que a inovação também pode habitar o território do cuidado.</p>
   </div>
 
-  <div class="petal-divider">
+  <div class="petal-divider" aria-hidden="true">
     <svg viewBox="0 0 24 24"><path d="M12 2 L15 11 L12 22 L9 11 Z" fill="#bd3f9e"/></svg>
     <svg viewBox="0 0 24 24"><path d="M12 2 L15 11 L12 22 L9 11 Z" fill="#ef7d1e"/></svg>
     <svg viewBox="0 0 24 24"><path d="M12 2 L15 11 L12 22 L9 11 Z" fill="#1ba9d6"/></svg>
   </div>
 
-  <section class="art-page">
-    <img src="Assets/IMG_5219.jpeg" alt="Grupo da oficina reunido em roda durante encontro coletivo de escrita.">
+  <section class="art-page" id="img-escrita-coletiva">
+    <figure>
+      <img src="Assets/IMG_5219.jpeg" alt="" loading="lazy" decoding="async">
+      <figcaption>Grupo da oficina reunido em roda durante encontro coletivo de escrita.</figcaption>
+    </figure>
   </section>
 
   <h3 class="subhead">Uma Escrita Coletiva: Quem Fez a Travessia</h3>
   <p>Nenhum diário de bordo se escreve sozinho. A beleza desta oficina residiu na horizontalidade, no respeito mútuo e na presença de cada pessoa que ocupou a sala, desfazendo as barreiras invisíveis entre quem cuida e quem é cuidado.</p>
-  <p>A coordenação e o impulso inicial vieram de Marcos Ferreira e Diana de Holanda, convidados externos e proponentes do projeto pela mobCONTENT, que trouxeram a proposta conceitual e o suporte tecnológico para o espaço. A condução sensível e diária das oficinas foi liderada por Victória Pasqual, oficineira e profissional do CECCO, que guiou os exercícios literários com a delicadeza necessária para acolher a singularidade de cada um.</p>
-  <p>A força do encontro foi tão potente que alterou os papéis inicialmente previstos: Danielle Izidoro, que acompanharia a atividade estritamente como profissional de saúde do serviço, acabou integrando-se de corpo e alma, escrevendo e criando ativamente junto com o grupo.</p>
-  <p>E, no coração desta jornada, ocupando esse espaço reconfigurado pela liberdade e dando vida aos textos que você lerá a seguir, estiveram os conviventes e participantes fundamentais: Adilson Tiamo, Vera Lúcia, César Medeiros, Patrícia Ruth, Adina dos Santos e uma participante que pediu para não ser identificada.</p>
-  <p>As páginas a seguir reúnem os contos e poemas nascidos desse encontro. Em respeito à liberdade criativa e à privacidade acordada desde o primeiro dia, as obras são apresentadas de forma anônima e coletiva. Convidamos você a abrir este mapa e navegar pelas geografias inventadas de nossas mentes. Boa leitura.</p>
+  <p>A coordenação e o impulso inicial vieram de Marcos Ferreira e Diana de Hollanda, convidados externos e proponentes do projeto pela mobCONTENT, que trouxeram a proposta conceitual e o suporte tecnológico para o espaço. A condução sensível e diária das oficinas foi liderada por Victória Pasqual, oficineira e profissional do CECCO Pedra Branca, que guiou os exercícios literários com a delicadeza necessária para acolher a singularidade de cada um.</p>
+  <p>A força do encontro foi tão potente que alterou os papéis inicialmente previstos: Daniele Isidoro, que acompanharia a atividade estritamente como profissional de saúde do serviço, acabou integrando-se de corpo e alma, escrevendo e criando ativamente junto com o grupo.</p>
+  <p>E, no coração desta jornada, ocupando esse espaço reconfigurado pela liberdade e dando vida aos textos que você lerá a seguir, estiveram os conviventes e participantes fundamentais: Adilson Tiamo, Vera Lúcia, César Medeiros, Patrícia Ruth, Adina Aparecida e uma participante que pediu para não ser identificada.</p>
+  <p>As páginas a seguir reúnem os contos e poemas nascidos desse encontro. Convidamos você a abrir este mapa e navegar pelas geografias inventadas de nossas mentes. Boa leitura.</p>
 
-  <section class="art-page art-page--text">
-    <img src="Assets/Stella.png" alt="Lambe-lambes com falatórios de Stella do Patrocínio na rua: É um malezinho prazeres, é tudo bom e nada presta.">
+  <section class="art-page art-page--text" id="img-stella-rua">
+    <figure>
+      <img src="Assets/Stella.png" alt="" loading="lazy" decoding="async">
+      <figcaption>Lambe-lambes com falatórios de Stella do Patrocínio na rua: «É um malezinho prazeres, é tudo bom e nada presta».</figcaption>
+    </figure>
   </section>
 
   <h3 class="subhead">A Memória de Stella e o Fechamento de um Ciclo</h3>
@@ -886,38 +1208,35 @@
 <!-- ============================================================ -->
 <!-- FOTO — FABULADOR -->
 <!-- ============================================================ -->
-<section class="art-page art-page--text">
-  <img src="Assets/IMG_5257.jpeg" alt="Participantes da oficina usando o Fabulador em um notebook durante o encontro.">
+<section class="art-page art-page--text print-break" id="img-fabulador">
+  <figure>
+    <img src="Assets/IMG_5257.jpeg" alt="" loading="lazy" decoding="async">
+    <figcaption>Duas participantes da oficina usando o Fabulador em um notebook durante o encontro.</figcaption>
+  </figure>
 </section>
 
 <!-- ============================================================ -->
 <!-- NOTA SOBRE O USO DA IA -->
 <!-- ============================================================ -->
 <div class="page" id="nota-ia">
+  <h2 class="section-title">Nota sobre o Uso da Inteligência Artificial: O Fabulador</h2>
   <div class="ai-box">
-    <h4>Nota sobre o Uso da Inteligência Artificial: O Fabulador</h4>
-    <p>A inclusão da Inteligência Artificial nesta jornada não buscou automatizar o fazer literário, mas sim abrir um campo inédito de experimentação e diálogo humanizado. Batizada de Fabulador, a tecnologia atuou como um co-piloto criativo e pioneiro, destacando-se pela capacidade de unir a vanguarda tecnológica ao território do cuidado e da sensibilidade.</p>
-    <p>O Fabulador operou como um suporte discreto em três frentes práticas:</p>
+    <p>A inclusão da Inteligência Artificial nesta jornada não buscou automatizar o fazer literário, mas sim abrir um campo inédito de experimentação e diálogo. Utilizada como ferramenta de apoio à criação, a tecnologia operou como um suporte técnico e criativo, integrando a inovação digital ao território do cuidado e da sensibilidade, sempre sob a condução e o protagonismo dos participantes.</p>
+    <p>O Fabulador funcionou como um recurso complementar em três frentes práticas:</p>
     <ul>
-      <li><strong>Tradutora de Sentimentos</strong> — transformando descrições verbais e abstratas de emoções complexas em imagens visuais metafóricas, que serviram como faíscas geradoras para destravar a escrita.</li>
-      <li><strong>Arquiteta de Personagens</strong> — auxiliando os participantes na estruturação inicial de personas e enredos ficcionais, garantindo o distanciamento seguro necessário para a criação.</li>
-      <li><strong>Voz Neutra</strong> — emprestando uma leitura neural, calma e serena aos textos finalizados, permitindo que os autores escutassem suas próprias criações sob uma perspectiva externa, fortalecendo a percepção de si mesmos como artistas.</li>
+      <li><strong>Estímulo a Imagens Poéticas</strong> — auxiliando na tradução de descrições abstratas de emoções complexas em metáforas visuais, que serviram como faíscas geradoras para destravar a escrita.</li>
+      <li><strong>Apoio à Estruturação Narrativa</strong> — colaborando na organização inicial de personas e enredos ficcionais, o que favoreceu o distanciamento seguro necessário para a criação literária.</li>
+      <li><strong>Leitura de Apoio</strong> — oferecendo uma reprodução de voz neural, pausada e serena, dos textos finalizados, permitindo que os autores escutassem suas próprias produções sob uma perspectiva externa, fortalecendo a percepção de si mesmos como criadores.</li>
     </ul>
-    <p>Como as atividades aconteceram dentro de um dispositivo de saúde pública, a arquitetura do aplicativo foi desenhada sob o amparo dos princípios éticos e cuidadosos da Reforma Psiquiátrica. A ferramenta foi colocada estritamente a serviço do acolhimento, posicionando-se genuinamente como uma tecnologia de cuidado. Para além de uma simples adaptação ao perfil dos participantes, houve um esforço técnico minucioso para sincronizar a "temperatura" da IA com a função sensível que ela ocupava naquela engrenagem de atenção psicossocial. Esse ajuste fino de sensibilidade algorítmica garantiu que o sistema respondesse de forma acolhedora, contida e livre de julgamentos, respeitando integralmente a singularidade de cada história, operando sem qualquer forma de repressão ou indução, e consolidando a tecnologia como um espelho gentil e seguro para a imaginação.</p>
+    <p>Como as atividades aconteceram dentro de um dispositivo de saúde pública, o desenho da ferramenta foi orientado pelos princípios éticos e humanizados da Reforma Psiquiátrica. O recurso tecnológico foi colocado estritamente a serviço do acolhimento, configurando-se como um suporte de cuidado.</p>
+    <p>Houve um esforço técnico minucioso para ajustar a configuração da IA à função sensível que ela ocupava naquela engrenagem de atenção psicossocial. Esse refinamento garantiu que o sistema respondesse de forma acolhedora, contida e livre de julgamentos. A ferramenta foi utilizada sob mediação cuidadosa da equipe, buscando evitar induções ou direcionamentos, respeitando integralmente a singularidade de cada história e consolidando-se como um espelho seguro para as fabulações e imaginações dos participantes.</p>
   </div>
 </div>
 
 <!-- ============================================================ -->
-<!-- DIÁRIO DE BORDO — SAÚDE -->
-<!-- ============================================================ -->
-<section class="art-page art-page--text">
-  <img src="Assets/saude.png" alt="Página de diário de bordo: texto manuscrito sobre o Sol, saúde mental e arte, com colagem da pintura de Bosch e recortes MAGIA e SAÚDE.">
-</section>
-
-<!-- ============================================================ -->
 <!-- DIA 1 -->
 <!-- ============================================================ -->
-<div class="page" id="dia1">
+<div class="page print-break" id="dia1">
   <div class="day-opener">
     <span class="day-number">Dia 1</span>
     <h2 class="day-title">O Primeiro Encontro</h2>
@@ -927,13 +1246,13 @@
   <div class="diary-log">
     <p>O primeiro encontro foi dedicado à formação do grupo, à apresentação da proposta e à construção coletiva de acordos de convivência. Após uma breve apresentação de cada participante e de sua relação com a escrita, compartilhamos os objetivos da oficina e construímos, em conjunto, os chamados "combinados literários". Entre os acordos estabelecidos, destacaram-se o respeito mútuo, a escuta atenta, a liberdade para compartilhar apenas o que cada pessoa desejasse e a compreensão de que a oficina seria um espaço de experimentação, sem exigências quanto à escrita "correta" ou "bem-feita".</p>
     <p>Em seguida, realizamos a primeira atividade de escrita. Cada participante recebeu um envelope contendo palavras e imagens previamente selecionadas. Buscou-se reunir materiais que dialogassem com o grupo, priorizando imagens de pessoas racializadas e palavras que pudessem despertar diferentes associações e narrativas. A proposta consistia em trocar alguns desses elementos entre si e, posteriormente, produzir um texto inspirado pelas palavras e imagens que permanecessem com cada participante.</p>
-    <p>Após esse momento, foi realizado um segundo exercício, que convidava cada pessoa a escolher um espaço da casa e escrever a partir da perspectiva de um objeto presente naquele ambiente. Foi interessante observar como os participantes se espalharam pelo CECCO, ocupando diferentes cantos e experimentando novos olhares sobre o espaço por meio da escrita.</p>
+    <p>Após esse momento, foi realizado um segundo exercício, que convidava cada pessoa a escolher um espaço da casa e escrever a partir da perspectiva de um objeto presente naquele ambiente. Foi interessante observar como os participantes se espalharam pelo CECCO Pedra Branca, ocupando diferentes cantos e experimentando novos olhares sobre o espaço por meio da escrita.</p>
     <p>Ao final de cada atividade, os textos eram compartilhados em roda. Esses momentos de leitura revelaram-se especialmente potentes, marcados pela escuta cuidadosa, pelos aplausos espontâneos, pelos comentários afetuosos e pelas trocas de aprendizados entre os participantes. As narrativas produzidas permitiram conhecer um pouco mais das experiências, sensibilidades e modos de expressão de cada pessoa presente.</p>
     <p>O encontro foi encerrado com uma roda de avaliação, na qual os participantes compartilharam suas impressões sobre a experiência e escolheram palavras para sintetizar o que haviam vivido naquela tarde. Em seguida, realizamos um lanche coletivo, momento importante de convivência e comunhão. Ao compartilhar a comida, os participantes permaneceram juntos, conversaram sobre os textos produzidos, retomaram algumas das experiências vividas durante as atividades e puderam reverberar os afetos, reflexões e narrativas que emergiram ao longo do encontro. Esse momento reforçou o caráter coletivo da oficina, fortalecendo vínculos e ampliando as possibilidades de troca para além da escrita. Ao final, todas as pessoas demonstraram interesse e entusiasmo em seguir participando da oficina ao longo dos encontros seguintes.</p>
   </div>
 
-  <div class="text-card">
-    <div class="author">Danielle Izidro</div>
+<article class="text-card print-break">
+<header class="author"><cite>Daniele Isidoro</cite></header>
     <div class="body">A mesa tem quatro cadeiras.
 
 A mesa tem apoio, a mesa é firme
@@ -953,10 +1272,10 @@ a mesa é redonda, a mesa é quadrada
 a mesa é fina e a mesa é grossa.
 
 Tudo isso para dizer que existe uma mesa.</div>
-  </div>
+</article>
 
-  <div class="text-card">
-    <div class="author">Adilson Tiamo</div>
+<article class="text-card print-break">
+<header class="author"><cite>Adilson Tiamo</cite></header>
     <div class="body">Hoje eu estava no Ponto de Cultura Pedra Branca, numa sala pequena, ao meu lado tinha muitas pessoas, e, no canto da parede, um ventilador.
 O vento, às vezes, vinha ao meu encontro.
 Chegava a mim.
@@ -965,10 +1284,10 @@ Nesse momento, meu pensamento vagou até você, o cheiro do perfume do seu corpo
 Meu amor, você não tem amigos. Amigos que não querem ver os outros felizes.
 Ah. Que isso? Quem desligou o ventilador?
 O cheiro dela sumiu.</div>
-  </div>
+</article>
 
-  <div class="text-card">
-    <div class="author">César Medeiros</div>
+<article class="text-card print-break">
+<header class="author"><cite>César Medeiros</cite></header>
     <div class="body">Televisão é tudo para o ser humano?
 O que ela ensina o que ela transmite?
 
@@ -987,27 +1306,27 @@ Tudo evolui.
 
 Tudo está quase fácil de se comunicar
 com o outro lado do Oriente, tipo, do outro lado.</div>
-  </div>
+</article>
 
-  <div class="text-card">
-    <div class="author">Adina dos Santos</div>
+<article class="text-card print-break">
+<header class="author"><cite>Adina Aparecida</cite></header>
     <div class="body">Eu, Adina, faço atividades aqui no Centro de Atividades. Pilates, alongamento, atividades físicas. Também participo das oficinas. Particularmente, posso falar com propriedade sobre o quanto me faz bem ter essa alegria de estar nesse espaço.
 Às vezes me pego pensando, se eu fosse um desses objetos que está sempre aqui, nesse mesmo lugar, eu, sinceramente, gostaria de ser o bebedouro, porque já imaginou se ele pudesse falar? "Bom dia, boa tarde, até amanhã" ou "hoje eu estou com água bem geladinha". Fico a imaginar como este bebedouro é importante. Tão simples.</div>
-  </div>
+</article>
 
-  <div class="text-card">
-    <div class="author">Vera</div>
+<article class="text-card print-break">
+<header class="author"><cite>Vera</cite></header>
     <div class="body">Dentre as maravilhas que a natureza nos dá, uma das mais belas é a flor.
 A flor faz parte das nossas vidas do início ao fim. Está presente quando nascemos, seja enfeitando o quarto ou como presente dado à nossa mãe pelo nosso nascimento. Ou até mesmo quando nos olham e dizem que somos um bebê lindo como uma flor.
 Encontramos ela no nosso jardim, nas jarras no meio da sala, que, por sinal, embeleza, dando cor e vida à nossa casa. Ao nosso amor. Também fazem parte dos momentos mais importantes de nossas vidas, como aniversários, formatura, casamentos. De cores variadas, tamanhos e cheiros, a encontramos em suas inúmeras formas, dando um toque de exuberância a toda a natureza.
 Em lugares feios, tentando enfeitá-los, como no pântano, ou em lugares já bonitos, tornando-os mais bonitos ainda. Sem preconceito, sem distinção, a flor encanta e embeleza até nossos últimos momentos de vida. Ela nos acompanha na nossa última morada, embelezando essa despedida tão triste.</div>
-  </div>
+</article>
 </div>
 
 <!-- ============================================================ -->
 <!-- DIA 2 -->
 <!-- ============================================================ -->
-<div class="page" id="dia2">
+<div class="page print-break" id="dia2">
   <div class="day-opener">
     <span class="day-number">Dia 2</span>
     <h2 class="day-title">Respirando e Fabulando</h2>
@@ -1020,34 +1339,34 @@ Em lugares feios, tentando enfeitá-los, como no pântano, ou em lugares já bon
     <p>Após esse momento, cada participante foi convidado a registrar aquilo que havia emergido durante a prática: uma imagem, um som, uma frase, uma lembrança ou uma sensação corporal. A proposta era acolher esses fragmentos sem organizá-los, permitindo que aparecessem em sua forma mais bruta e espontânea.</p>
     <p>A segunda atividade aprofundou a dimensão coletiva da criação. Na proposta "Poesia Compartilhada", cada participante iniciou uma folha escrevendo uma frase curta. Em seguida, as folhas circularam pela roda e novas frases foram sendo acrescentadas sucessivamente, sem que se pudesse visualizar o texto completo. Cada pessoa escrevia a partir do pouco que via — ou, por vezes, a partir do vazio — permitindo que as narrativas fossem construídas coletivamente por múltiplas mãos.</p>
     <p>Quando as folhas retornaram aos seus autores iniciais, os textos foram lidos pela primeira vez em sua totalidade. O resultado provocou risos, surpresas e encantamentos. Frases que pareciam não ter relação encontravam sentidos inesperados, produzindo imagens poéticas que dificilmente surgiriam em um processo individual de escrita. O exercício evidenciou a potência da criação coletiva, em que cada pessoa deixa marcas em uma obra que já não pertence a ninguém em particular, mas ao grupo como um todo.</p>
-    <p>Em um segundo momento, alguns desses textos coletivos foram levados ao GEM. Em coletivo os participantes experimentaram expandir, transformar ou continuar as narrativas produzidas pela roda. A proposta era utilizar a ferramenta como um disparador criativo, explorando novas possibilidades para textos que já haviam nascido do encontro entre diferentes imaginações.</p>
-    <p>Foi nesse momento que surgiram reflexões muito interessantes sobre a criação compartilhada. Houve algo de viagem coletiva na experiência de acompanhar os caminhos sugeridos pelo GEM. Os textos ganhavam novos contornos, imagens inesperadas apareciam e as histórias se deslocavam para territórios que dificilmente teriam sido alcançados individualmente. Enquanto oficineira, vivi também um momento de dúvida sobre como essa proposta seria recebida, mas a experiência revelou a potência de pensar a inteligência artificial como mais um agente escritor presente na roda. Não como alguém que escreve por nós, mas como um dispositivo capaz de provocar deslocamentos, expandir perspectivas e abrir caminhos para a imaginação.</p>
+    <p>Em um segundo momento, alguns desses textos coletivos foram levados ao Fabulador, aplicativo de IA de auxílio à escrita. Em coletivo os participantes experimentaram expandir, transformar ou continuar as narrativas produzidas pela roda. A proposta era utilizar a ferramenta como um disparador criativo, explorando novas possibilidades para textos que já haviam nascido do encontro entre diferentes imaginações.</p>
+    <p>Foi nesse momento que surgiram reflexões muito interessantes sobre a criação compartilhada. Houve algo de viagem coletiva na experiência de acompanhar os caminhos sugeridos pelo Fabulador. Os textos ganhavam novos contornos, imagens inesperadas apareciam e as histórias se deslocavam para territórios que dificilmente teriam sido alcançados individualmente. Enquanto oficineira, vivi também um momento de dúvida sobre como essa proposta seria recebida, mas a experiência revelou a potência de pensar a inteligência artificial como mais um agente escritor presente na roda. Não como alguém que escreve por nós, mas como um dispositivo capaz de provocar deslocamentos, expandir perspectivas e abrir caminhos para a imaginação.</p>
     <p>Mais do que produzir textos, o exercício permitiu refletir sobre a fabulação como prática coletiva. Havia algo potente em poder criar junto, acompanhar os delírios uns dos outros e sustentar narrativas compartilhadas. Diferentemente de experiências marcadas pelo isolamento e pela impossibilidade de encontrar interlocutores para determinadas compreensões do mundo, a oficina produziu um espaço em que a imaginação podia circular e ser acolhida. Fabular coletivamente tornou-se, assim, uma forma de produzir vínculo, construir pertencimento e experimentar outros modos de existir.</p>
     <p>No encerramento, cada participante pôde reler os textos produzidos e refletir sobre sua possível inclusão no e-book coletivo, avaliando quais escritos desejava manter, revisar ou continuar desenvolvendo. Em seguida, realizamos uma roda de conclusão, na qual cada pessoa compartilhou brevemente como havia sido participar daquele encontro e escolheu uma palavra para sintetizar a experiência vivida.</p>
     <p>Como já vem se tornando tradição na oficina, finalizamos a tarde em torno de um lanche compartilhado. Entre cafés, bolos, frutas e conversas, os textos continuaram reverberando. O momento de comer junto tornou-se também um momento de elaboração coletiva, em que as histórias produzidas ao longo do encontro puderam circular de outras formas. Ali, entre risos, comentários e trocas afetivas, fortaleciam-se vínculos e ampliavam-se possibilidades de convivência. Mais do que um encerramento, o lanche coletivo constituiu-se como parte fundamental da oficina: um espaço de comunhão, alegria e celebração daquilo que se cria quando pessoas se reúnem para escrever, imaginar e estar juntas.</p>
   </div>
 
-  <div class="text-card">
-    <div class="author">Adilson</div>
+<article class="text-card print-break">
+<header class="author"><cite>Adilson</cite></header>
     <div class="body">Eu, Adilson, fui ao ponto de cultura Pedra Branca. A professora de história me levou para a parte de fora da casa, junto com outros alunos, e nós, andando, sentimos ouvir a natureza. Para nós sentirmos, ouvir a natureza. Eu, no momento de silêncio, senti um perfume de orquídeas.
 Ao andar mais um pouco, o cheiro mudou, mas o ar estava parado. Eu fiquei confuso de andar e o perfume estava vindo. Mudei de lugar, veio outro cheiro de rosas brancas. Voltei atrás alguns passos e veio o aroma da orquídea. Pedi à professora para ficar perto de mim, não era dela o cheiro, digo, o perfume.
 No mesmo momento, ouvi os pássaros cantando e um barulho de vassoura. Alguém estava varrendo uma casa, só podia ser a casa que estava ao meu lado. Um pássaro cantava, eu acho que estava chorando, porque o matagal perto estava cortado. Eu pensei: é o passarinho fêmea que perdeu o ninho, estava cantando desesperado. Aí a aula acabou.</div>
-  </div>
+</article>
 
-  <div class="text-card">
-    <div class="author">Vera Lúcia Santiago Reis</div>
+<article class="text-card print-break">
+<header class="author"><cite>Vera Lúcia Santiago Reis</cite></header>
     <div class="body">Eu e a natureza. A vida pulsando ao redor. Sons diversos, cores. O vento no meu rosto, no meu corpo, me faz sentir arrepios. Sinto meu sangue circular tão rápido pelas minhas veias, meu coração bate forte. Medo? Emoção? Ou é o desconhecido que me assusta? Estou de olhos fechados. Percebo o quanto de energia e de vida que está à minha volta. É a força da natureza. É o que nos mantém vivos nesse planeta.
 Ouço passarinhos cantando, odores diversos vindos das árvores frutíferas. Sinto o sol queimando a minha pele. Uma ansiedade tomando o meu corpo, mas, ao mesmo tempo, uma sensação de paz chegando devagarinho, fazendo-me sentir bem. Sentir uma leveza da qual eu estava precisando. Estou leve, livre e solta. Voltei da meditação.</div>
-  </div>
+</article>
 
-  <div class="text-card">
-    <div class="author">Patrícia Ruth</div>
+<article class="text-card print-break">
+<header class="author"><cite>Patrícia Ruth</cite></header>
     <div class="body">Nem sempre em mim, ao ver as cores que vi, uma tonalidade diferente. De achar que ver é enxergar tudo na minha frente.
 Tocar em mim não me sinto segura. Sentindo o gosto amargo. O silêncio da pessoa é deixar sentir o cheiro da mata. Mas pegar e colocar a mão no seu rosto é confiar em si.</div>
-  </div>
+</article>
 
-  <div class="text-card">
-    <div class="author">Daniele Cristine Zidoro</div>
+<article class="text-card print-break">
+<header class="author"><cite>Daniele Isidoro</cite></header>
     <div class="body">O raio de sol me fez sentir o despertar do sol me fazendo transpirar.
 A cada passo que meu pé toca com o calcanhar, a sola em contato com o chão me faz desequilibrar.
 Há meses senti o sopro do vento tocando em meu rosto.
@@ -1058,17 +1377,18 @@ Ouvi o barulho longe de homens a conversar.
 Ouvi o barulho de dentro da casa de pessoas a conversar.
 Ouvi o barulho dos pássaros a cantarolar.
 Ouvi o barulho da moto arrancar.</div>
-  </div>
+</article>
 
-  <div class="text-card">
-    <div class="author">César Medeiros de Souza</div>
+<article class="text-card print-break">
+<header class="author"><cite>César Medeiros de Souza</cite></header>
     <div class="body">Eu e o mundo. Ouvi o som dos pássaros cantando, o sol queimando a pele, o som de cachoeira, o som do vento, as moscas assobiando no meu ouvido.
 O pensamento de leveza na alma, o barulho de carros, o cântico das árvores, a borboleta no espaço, gente falando 24 horas, as folhas balançando, os grilos triturando as folhas.
 Os paralelepípedos tocando o chão, a chuva caindo na noite ou na madrugada e as folhas molhadas.</div>
-  </div>
+</article>
 
-  <div class="fabulador">
-    <div class="fab-label">Fabulador · registro do exercício com o GEM</div>
+  <div class="fabulador" id="fabulador-dia2">
+    <div class="fab-label">Registro do Exercício com IA</div>
+    <p class="fab-note">O texto recuado à esquerda refere-se à fala das oficineiras, enquanto o texto com tabulação é dos participantes. As oficineiras submetem ao fabulador as escolhas do grupo e compartilham as sugestões de palavras da inteligência artificial. As falas do grupo não estão discriminadas por autor.</p>
     <p class="prompt">Vocês lembram o que a gente tinha falado?</p>
     <p class="voice">A amabilidade ao próximo nos ajuda a superar as dificuldades. Liberdade.<br>
     Redemoinho dos ventos; ventos que movem redemoinhos.<br>
@@ -1109,7 +1429,7 @@ Os paralelepípedos tocando o chão, a chuva caindo na noite ou na madrugada e a
 
     <p class="prompt">Gente, eu estou muito empolgada para ver o que ele vai trazer, posso mandar?</p>
 
-    <div class="gem-final">
+    <div class="gem-final print-break" id="texto-final-fabulador">
       <span class="tag">Texto final — Fabulador</span>
       Amabilidade entre o próximo é tudo de bom.
 Ajuda a superar as dificuldades, liberdade.
@@ -1171,23 +1491,26 @@ No lixo ainda nascem flores.
     <p class="voice">Foi ótimo.</p>
   </div>
 
-  <section class="art-page">
-    <img src="Assets/IMG_4769.jpeg" alt="Desenho COM A TERRA MOLHADA: paisagem com sol, árvores, rio e barco.">
+  <section class="art-page print-break" id="img-4769">
+    <figure>
+      <img src="Assets/IMG_4769.jpeg" alt="" loading="lazy" decoding="async">
+      <figcaption>Desenho «COM A TERRA MOLHADA»: paisagem com sol, árvores, rio e barco.</figcaption>
+    </figure>
   </section>
 </div>
 
 <!-- ============================================================ -->
 <!-- DIA 3 -->
 <!-- ============================================================ -->
-<div class="page" id="dia3">
+<div class="page print-break" id="dia3">
   <div class="day-opener">
     <span class="day-number">Dia 3</span>
     <h2 class="day-title">Toda Vida Dá um Livro</h2>
-    <p class="day-byline">Encontro 3 — Victoria Pasqual</p>
+    <p class="day-byline">Encontro 3 — Diário de bordo da oficineira</p>
   </div>
 
   <div class="diary-log">
-    <p>O terceiro encontro teve início com um deslocamento físico pelo serviço. Saímos do espaço habitual da oficina e caminhamos juntos até outra área do CECO. Esse pequeno movimento, aparentemente simples, já anunciava algo importante sobre o encontro: a possibilidade de mudar de lugar, de olhar por outros ângulos e de experimentar novos modos de estar com as próprias histórias.</p>
+    <p>O terceiro encontro teve início com um deslocamento físico pelo serviço. Saímos do espaço habitual da oficina e caminhamos juntos até outra área do CECCO Pedra Branca. Esse pequeno movimento, aparentemente simples, já anunciava algo importante sobre o encontro: a possibilidade de mudar de lugar, de olhar por outros ângulos e de experimentar novos modos de estar com as próprias histórias.</p>
     <p>Ao chegarmos, realizamos o exercício "Minha vida dá um livro", uma proposta baseada em uma atividade desenvolvida pelo Laboratório de Sensibilidades e Devires (UFRJ). Uma ação de escuta, escrita e retorno. Em duplas, cada participante foi convidado a contar uma história de sua vida como se estivesse apresentando um livro. Não era necessário narrar uma trajetória inteira; bastava uma cena, um acontecimento, uma fase ou mesmo uma atmosfera que carregasse algo de significativo.</p>
     <p>Enquanto uma pessoa narrava, a outra escrevia a história que escutava. Em seguida, os papéis eram invertidos. Ao final, acontecia o momento mais delicado da atividade: a leitura cruzada. Cada participante recebia sua própria história de volta, agora atravessada pela escuta e pela escrita de outra pessoa.</p>
     <p>Durante a preparação para a atividade, compreendemos a importância de que as próprias oficineiras participassem do exercício. Mais do que conduzir a proposta, era necessário habitá-la. Contar um pouco de nossas histórias e, ao mesmo tempo, receber de participantes uma narrativa sobre nós tornou-se uma experiência potente de convivência. Não se tratava de analisar a vida de ninguém, mas de construir junto. De experimentar a escrita como encontro. De reconhecer que toda narrativa nasce de uma relação.</p>
@@ -1200,42 +1523,42 @@ No lixo ainda nascem flores.
     <p>Como em todos os encontros, encerramos a tarde compartilhando alimentos. O lanche coletivo voltou a marcar esse tempo de permanência, conversa e convivência, permitindo que os afetos produzidos ao longo das atividades continuassem reverberando. Também lançamos um convite para o próximo e último encontro: começar a refletir sobre o que cada pessoa gostaria de publicar e compartilhar. Que histórias desejam ganhar as páginas do livro que estamos construindo juntos? Como transformar esse percurso em uma obra coletiva capaz de guardar memórias, afetos e futuros possíveis?</p>
   </div>
 
-  <div class="text-card">
-    <div class="author">César</div>
+<article class="text-card print-break">
+<header class="author"><cite>César</cite></header>
     <div class="body">Ah, o nosso corpo é incomodado. Vem de um ciúme. Uns certos tipos de postura.
 Ver vidas para relaxar a mente que está confusa. Os ventos que caem no cabelo relaxam a mente que está enfeitiçada. Como uma oração que jogaram no mundo espiritual.
 Por que o mal e o bem existem? A saúde mental do CAPS ajuda ou atrapalha? Eles oprimem muito a nossa mente. Por que isso acontece na saúde mental?
 A dança é para relaxar a dor. Não é para doer. A dor não é fingida.
 O que anda para nós? A arte está em nós e no mundo. Por que eles não compreendem? Com gastos calóricos. Trabalhar é bom. Trabalhar para quê? Trabalhar 24 horas dá muito estresse. Como lidar com o estresse? A arte é equilíbrio mental.
 Nós ganhamos o pão nosso de cada dia.</div>
-  </div>
+</article>
 
-  <div class="text-card">
-    <div class="author">Patrícia Ruth</div>
+<article class="text-card print-break">
+<header class="author"><cite>Patrícia Ruth</cite></header>
     <div class="body">Meu pai e minha mãe eram um casal, escrevi assim, sabe? Novinho. Aí, ficamos juntos, morando numa chácara, plantando milho, mandioca. Como minha mãe ficou grávida, nasci com problemas. Minha mãe falou pra mim que, quando eu fizesse quinze anos, era pra fazer uma promessa. Foi na Romaria comigo e eu fiquei salva. Sã e salva. Como meu pai tinha morrido, com o dinheiro da pensão dele, fui fazer faculdade. Nossa Senhora de Abadia. Não escrevi muito bem, pulei muita coisa. Estou um pouco aérea.</div>
-  </div>
+</article>
 
-  <div class="text-card">
-    <div class="author">Vera Lúcia</div>
+<article class="text-card print-break">
+<header class="author"><cite>Vera Lúcia</cite></header>
     <div class="body">Bem, vou falar de resumo da minha professora Dani. Ela, desde os três anos de idade, sempre foi muito amada pelas pessoas que a cercaram. Vou falar sobre como ela cresceu no meio de militares e juízes.
 O desembargador César Augusto e sua esposa, Maria de Lourdes, me amaram muito, me colocaram para estudar e conduziram o meu futuro. Sempre fui uma criança saudável, esperta, brincalhona e muito feliz. Viajava muito, sempre em janeiro, íamos para o estado de Espírito Santo. Minhas férias sempre foram muito divertidas e ótimas. Infelizmente, conheci minha mãe e tudo mudou.
 Minha mãe era uma mulher muito sofredora, não foi fácil conviver com ela na fase da adolescência. Aos dezoito anos, voltei a morar com meu pai e minha tia. Eles realizaram todos os meus sonhos. Um deles era que me formasse como juíza. Mas, infelizmente, não consegui fazer a faculdade de Direito. Fiz de Educação Física, área na qual trabalho atualmente. Hoje, com 53 anos, estou fazendo faculdade de Direito. Não é fácil. Mas estou fazendo.</div>
-  </div>
+</article>
 
-  <div class="text-card">
-    <div class="author">Daniele</div>
+<article class="text-card print-break">
+<header class="author"><cite>Daniele Isidoro</cite></header>
     <div class="body">Fui uma criança comum, porém, evitava sonhar. Tive uma infância difícil e decidi que seria uma mulher forte e foi o que fiz. Estudei, me formei e fui o comandante da minha vida. Casei e tive uma filha. Me separei e fui à luta. Sempre senti falta de carinho, mas hoje sei que sou uma pessoa muito amada e recebo muito carinho. Me casei novamente com alguém vinte anos mais novo do que eu, que me mostrou como a vida poderia ser boa e me ajudou a me tornar a mulher que hoje sou: livre, feliz e cheia de sonho.</div>
-  </div>
+</article>
 </div>
 
 <!-- ============================================================ -->
 <!-- DIA 4 -->
 <!-- ============================================================ -->
-<div class="page" id="dia4">
+<div class="page print-break" id="dia4">
   <div class="day-opener">
     <span class="day-number">Dia 4</span>
     <h2 class="day-title">Escolhas, Polifonias e Continuidade</h2>
-    <p class="day-byline">Encontro 4 — Victoria Pasqual</p>
+    <p class="day-byline">Encontro 4 — Diário da oficineira</p>
   </div>
 
   <div class="diary-log">
@@ -1243,69 +1566,74 @@ Minha mãe era uma mulher muito sofredora, não foi fácil conviver com ela na f
     <p>Retomamos as pastas que cada participante havia recebido no início do processo. Nelas estavam reunidas as produções realizadas ao longo dos encontros: textos, anotações, experimentações e rastros de uma escrita que foi se construindo coletivamente, mas que também carregava marcas muito singulares. Infelizmente, um dos participantes que iniciou a oficina não pôde seguir conosco até este último encontro e não compartilhou desse momento de fechamento. Em contrapartida, um dos conviventes trouxe sua esposa, cuja presença contribuiu de forma muito sensível para as trocas e para a dinâmica do grupo.</p>
     <p>Abrimos a tarde conversando sobre o significado daquele encontro. Em seguida, cada participante recebeu sua pasta e foi convidado a folhear sua própria trajetória, revisitando os textos produzidos e escolhendo aquilo que gostaria — ou não — de publicar no livro que estamos construindo coletivamente. A proposta era simples: oferecer tempo, espaço e autonomia para que cada pessoa pudesse exercer seu direito sobre sua própria narrativa.</p>
     <p>Foi um momento bonito de observação. Alguns se recolheram em cantos mais silenciosos, outros compartilharam leituras e comentários. Entre lembranças e risadas, cada um foi reencontrando versões de si que haviam surgido ao longo do percurso.</p>
-    <p>Uma das conviventes, no entanto, demonstrou incômodo com um dos textos que havia escrito. Não se reconhecia naquela produção e não desejava vê-la publicada. Sentamos juntas e abrimos o GEM. Utilizando o recurso do Fabulador, passamos a experimentar novas possibilidades para aquele material. A experiência foi muito potente: a tecnologia não apareceu como substituta da escrita, mas como parceira de um processo de elaboração. A partir das interações, surgiu um novo texto no qual ela conseguiu se reconhecer, identificando ali algo que desejava compartilhar. O que antes era rejeição transformou-se em possibilidade.</p>
+    <p>Uma das conviventes, no entanto, demonstrou incômodo com um dos textos que havia escrito. Não se reconhecia naquela produção e não desejava vê-la publicada. Sentamos juntas e abrimos a inteligência artificial. Utilizando o recurso do Fabulador, passamos a experimentar novas possibilidades para aquele material. A experiência foi muito potente: a tecnologia não apareceu como substituta da escrita, mas como parceira de um processo de elaboração. A partir das interações, surgiu um novo texto no qual ela conseguiu se reconhecer, identificando ali algo que desejava compartilhar. O que antes era rejeição transformou-se em possibilidade.</p>
     <p>Curiosamente, essa primeira etapa terminou muito mais rápido do que havíamos imaginado. Havíamos previsto um longo período de seleção e revisão, mas o grupo nos surpreendeu. Houve poucas restrições e muito desejo de publicação. Mais do que escolher o que retirar, os participantes demonstraram vontade de seguir compartilhando suas produções. O que apareceu não foi um movimento de censura ou retraimento, mas de reconhecimento e valorização do que havia sido construído.</p>
     <p>Diante desse tempo que se abriu inesperadamente, mais uma vez precisamos nos reinventar. Decidimos então criar uma atividade final inspirada justamente pelo desejo de continuidade que atravessava o grupo.</p>
-    <p>Retomamos os envelopes de imagens e palavras utilizados em nosso primeiro encontro. Em conjunto, os participantes criaram composições visuais coletivas, organizando imagens, palavras e recortes em novas cenas. Fotografamos essas construções e as enviamos ao GEM, utilizando-as como disparadoras para a criação de contos coletivos.</p>
+    <p>Retomamos os envelopes de imagens e palavras utilizados em nosso primeiro encontro. Em conjunto, os participantes criaram composições visuais coletivas, organizando imagens, palavras e recortes em novas cenas. Fotografamos essas construções e as enviamos ao Fabulador, utilizando-as como disparadoras para a criação de contos coletivos.</p>
     <p>A partir dessas imagens nasceram três histórias. Histórias atravessadas por múltiplas vozes, contribuições, associações e imaginações. Cada pessoa acrescentava um detalhe, uma ideia, uma memória ou um rumo inesperado para a narrativa. A inteligência artificial, nesse contexto, atuou como uma reverberadora das vozes presentes, ampliando conexões, aproximando contribuições diversas e ajudando a encontrar pontos de encontro para a construção de uma escrita verdadeiramente coletiva.</p>
     <p>Mais do que produzir contos, o exercício evidenciou algo que atravessou toda a oficina: a escrita como espaço de convivência. Um território onde diferentes experiências podem coexistir, se afetar mutuamente e criar algo novo sem apagar as singularidades de cada participante. Foi um exercício de polifonia, de escuta e de construção de comuns.</p>
     <p>Encerramos nosso percurso da forma como ele se consolidou ao longo dos encontros: em torno de um lanche coletivo. Mais uma vez, o comer junto tornou-se parte fundamental da experiência. Entre cafés, conversas e despedidas, pudemos reverberar aquilo que havia sido vivido e produzido, compartilhando expectativas sobre os próximos passos.</p>
-    <p>O livro já deixava de ser apenas uma ideia para se tornar uma possibilidade concreta. Falamos sobre seu lançamento e perguntamos ao grupo onde gostariam de celebrar esse momento. A resposta veio imediata, quase em coro: o lançamento deveria acontecer no CECO Pedra Branca.</p>
-    <p>O desejo coletivo carregava uma profunda coerência. Foi ali que a escrita encontrou morada. Foi naquele espaço que as palavras puderam circular livremente, que as trocas aconteceram, que as histórias ganharam corpo e que novas possibilidades foram inventadas. O CECO Pedra Branca foi mais do que cenário da oficina; foi casa da convivência, da criação e da expansão dos possíveis. Não poderia haver lugar mais adequado para acolher o nascimento deste livro.</p>
+    <p>O livro já deixava de ser apenas uma ideia para se tornar uma possibilidade concreta. Falamos sobre seu lançamento e perguntamos ao grupo onde gostariam de celebrar esse momento. A resposta veio imediata, quase em coro: o lançamento deveria acontecer no CECCO Pedra Branca.</p>
+    <p>O desejo coletivo carregava uma profunda coerência. Foi ali que a escrita encontrou morada. Foi naquele espaço que as palavras puderam circular livremente, que as trocas aconteceram, que as histórias ganharam corpo e que novas possibilidades foram inventadas. O CECCO Pedra Branca foi mais do que cenário da oficina; foi casa da convivência, da criação e da expansão dos possíveis. Não poderia haver lugar mais adequado para acolher o nascimento deste livro.</p>
   </div>
 
-  <div class="text-card">
-    <div class="author">César Medeiros de Souza</div>
+<article class="text-card print-break">
+<header class="author"><cite>César Medeiros de Souza</cite></header>
     <div class="body">No primeiro dia, fiquei ansioso para saber o que é uma escrita. Eu me impactei com essa prosa que aconteceu comigo. Fazia isso no colégio, mas não sabia que iria dar certo. Mas Deus dá o dom a quem é escolhido. Muita gente fala que não, muita gente fala que não é capaz, mas fica olhando para o outro para não dar certo.
 E o sim-escrita é uma escola que fala do mundo em que vivemos, o que é a aula, a aula de escrita, o que aprendemos com ela, ficar maduro ou molenga? Não sei o que é isso, tudo é novidade para nós. Nascemos para escrever ou para olhar o que fazemos?
 Eu adorei, queria que continuasse: sempre nós botarmos a cabeça para funcionar. Só pensar nas coisas negativas não leva a nada, só leva a desprezo. Isso tudo é maravilhoso. Como aconteceu? Poderia acontecer mais? Em tempo todo, botei tudo o que sinto na alma, por dentro do espírito. Nós estamos de passagem aqui na terra, que Deus ilumine cada vez mais nós.</div>
-  </div>
+</article>
 
-  <div class="text-card">
-    <div class="author">Vera Lúcia</div>
+<article class="text-card print-break">
+<header class="author"><cite>Vera Lúcia</cite></header>
     <div class="body">Sempre tive facilidade em escrever, mas, ao participar dessa oficina criativa, percebi que não era tão fácil. O desafio de escrever sobre um tema sugerido é diferente de dissertar sobre o que você sente, sobre o que lhe é tão íntimo, os seus pensamentos, as suas lembranças e emoções.
 Descobri que, apesar de ser tida como séria, ao falar de mim, passo a ideia de uma pessoa alegre e extrovertida. Notei também que, apesar de não gostar de mostrar-me uma pessoa sentimental, adoro falar de amor, sentimento que, para mim, move o mundo.
 Enfim, foi uma experiência fascinante que serviu para eu aprender a respeitar opiniões diferentes das minhas e ver como se comunicar é difícil. Serviu também para cada vez mais eu valorizar os livros e, principalmente, quem os escreve.</div>
-  </div>
+</article>
 
-  <div class="text-card">
-    <div class="author">Adina Parecida dos Santos</div>
+<article class="text-card print-break">
+<header class="author"><cite>Adina Aparecida</cite></header>
     <div class="body">Hoje é um dia que vai ficar marcado na minha vida. Que pena ser o último dia de nosso encontro com a equipe. Juntos trocamos ideias e colocamos em prática nossas experiências de vida. E, assim, nessa troca, nós nos conhecemos mais e, assim, nos respeitamos mais como pessoas; uma coisa muito importante desses encontros.
 Para mim, foi uma experiência maravilhosa. Foi de saber que vai ser das minhas experiências da minha vida e de algumas inseguranças. Espero que tenha contribuído com minhas dúvidas e inseguranças.
 E, assim como para mim a experiência e as dúvidas delas foi para mim, a minha pessoa que agradeço a todas as pessoas que estamos passando e recebendo e doando nossas experiências.</div>
-  </div>
+</article>
 
-  <div class="text-card">
-    <div class="author">Daniele Cristina Izidoro</div>
+<article class="text-card print-break">
+<header class="author"><cite>Daniele Isidoro</cite></header>
     <div class="body">Os textos foram incríveis. Foram fáceis de escrever e de prosa.
 Às vezes eu me perdia nas ideias, tentando achar um sentido para as frases. Às vezes eu me perguntava se estava combinando o sentido das ideias. Às vezes os textos e as frases pareciam frágeis. Às vezes as frases do texto eram maduras. Às vezes as ideias eram muito incríveis e lindas de se rimar. Às vezes com cada texto desenvolvido nasciam turbilhões de ideias. Às vezes as frases escritas eram lindas de combinar. Às vezes o sentido das ideias era grande para se desenvolver e lindo para se ler. Às vezes se inspiravam tanto quanto as ideias vindas a bailar.
 Não foi fácil escrever poesia. Mas foram as coisas mais gostosas que desenvolvi nesse mês.</div>
-  </div>
+</article>
 
-  <div class="text-card">
-    <div class="author">Patrícia Ruth</div>
+<article class="text-card print-break">
+<header class="author"><cite>Patrícia Ruth</cite></header>
     <div class="body">Eu, pra mim, nada a esclarecer, os meus dizeres de escrever as histórias minhas. No momento, me sentia solta sobre as minhas dúvidas. Gosto muito de ler os conteúdos e desejar algo importante. Não quero iluminar as minhas ideias, as minhas histórias. Pra mim, é a minha marca. Eu já escrevi muito na minha vida. No momento, eu escreveria pra desabafar as coisas que eu sinto.
 O que vem é a nova era de encarar os meus desejos de escrever. Foi muito bom lembrar da minha história de vida.</div>
-  </div>
+</article>
 
-  <div class="text-card">
-    <div class="author">Sem nome</div>
-    <div class="body">Escrevo esse texto como se eu entrasse dentro de mim, vendo os meus pensamentos como os meus pensamentos começam a voar no meu jeito, comparando com um pássaro faltando uma parte das pernas. Isso significa que uma hora eu viajo nos pensamentos sem direção certa, uma hora vou para um lado, outra hora vou para outro lado, mas me corrigindo a direção sem errar o foco. Viajo nos meus pensamentos, a única hora que eu passo, que posso estar em todos os lugares sem sair da cadeira, viajando só no pensamento, onde o impossível passa a ser possível. Na realidade eu penso que sou, mas não sou, penso que tenho, mas não tenho, viajo nos pensamentos, quando me vejo estou no mesmo lugar.</div>
-  </div>
-
-  <div class="text-card">
-    <div class="author">Adina Parecida dos Santos <span class="ai-tag">— texto construído com auxílio do Fabulador</span></div>
+<article class="text-card print-break">
+<header class="author"><cite>Adina Aparecida <span class="ai-tag">— texto construído com auxílio do Fabulador</span></cite></header>
     <div class="body">Esforçada em um equilíbrio de vida. O esforço de não desistir de fazer as coisas. Hoje vejo que ainda existe o amanhã. Amanhã de esperança do futuro. Um desejo realizado. Consegui o que não conseguia, o que não tinha disposição para fazer. Ganhei a asa. Confiar mais e alcançar voos.</div>
-  </div>
+</article>
 </div>
+
+<!-- ============================================================ -->
+<!-- DIÁRIO DE BORDO — RUTH (Imagem 5) -->
+<!-- ============================================================ -->
+<section class="art-page art-page--text print-break" id="img-ruth2">
+  <figure>
+    <img src="Assets/ruth2.png" alt="" loading="lazy" decoding="async">
+    <figcaption>Desenho de pássaro com texto manuscrito: «Os paralelepípedos tocando o chão, a chuva caindo na noite ou na madrugada e as folhas molhadas».</figcaption>
+  </figure>
+</section>
 
 <!-- ============================================================ -->
 <!-- EPÍGRAFE -->
 <!-- ============================================================ -->
-<section class="epigraph-page" id="epigrafe-sem-nome">
+<section class="epigraph-page print-break" id="epigrafe-sem-nome" aria-label="Epígrafe">
   <div class="epigraph">
 
-    <div class="color-bar">
+    <div class="color-bar" aria-hidden="true">
       <div class="dash d1"></div>
       <div class="dash d2"></div>
       <div class="dash d3"></div>
@@ -1317,20 +1645,17 @@ O que vem é a nova era de encarar os meus desejos de escrever. Foi muito bom le
       <div class="dash d9"></div>
     </div>
 
-    <div class="quote-container">
-      <span class="quote-mark">&ldquo;</span>
+    <blockquote class="quote-container" cite="https://pt.wikipedia.org/wiki/Stella_do_Patroc%C3%ADnio">
       <p class="quote-text">
         Mas eu estava com saúde, estava com muita saúde,<br>
         Me adoeceram, me internaram no hospital<br>
         E me deixaram internada,<br>
         E agora eu vivo no hospital como doente.
       </p>
-      <div class="quote-author">
-        <span class="em-dash">—</span> Stella do Patrocínio
-      </div>
-    </div>
+      <footer class="quote-author">Stella do Patrocínio</footer>
+    </blockquote>
 
-    <div class="color-bar">
+    <div class="color-bar" aria-hidden="true">
       <div class="dash d1"></div>
       <div class="dash d2"></div>
       <div class="dash d3"></div>
@@ -1348,8 +1673,11 @@ O que vem é a nova era de encarar os meus desejos de escrever. Foi muito bom le
 <!-- ============================================================ -->
 <!-- FOTO — METODOLOGIA -->
 <!-- ============================================================ -->
-<section class="art-page">
-  <img src="Assets/IMG_5275.jpeg" alt="Participante da oficina com borboleta na mão, em ambiente ao ar livre.">
+<section class="art-page print-break" id="img-metodologia">
+  <figure>
+    <img src="Assets/IMG_5275.jpeg" alt="" loading="lazy" decoding="async">
+    <figcaption>Participante da oficina observando uma borboleta pousada na mão, em área verde ao ar livre.</figcaption>
+  </figure>
 </section>
 
 <!-- ============================================================ -->
@@ -1363,50 +1691,54 @@ O que vem é a nova era de encarar os meus desejos de escrever. Foi muito bom le
 <!-- ============================================================ -->
 <!-- EQUIPE DE CONDUÇÃO -->
 <!-- ============================================================ -->
-<div class="page" id="equipe">
+<div class="page print-break" id="equipe">
   <h2 class="section-title">Equipe de Condução</h2>
   <p class="section-subtitle">Oficineiros</p>
 
   <div class="bio bio-with-photo">
-    <h4>Marcos Ferreira</h4>
-    <img class="bio-photo" src="Assets/IMG_5286.jpeg" alt="Marcos Ferreira">
-    <p>Criador transmédia e fundador da mobCONTENT, investiga as intersecções entre arte, interatividade e novas linguagens digitais. A sua trajetória conceptual e artística foi reconhecida internacionalmente pelo prêmio Young Creative Entrepreneur do British Council em 2013, tendo sido selecionada e premiada em palcos de vanguarda e festivais na Inglaterra (como o Power To The Pixel, em Londres), Estados Unidos (SXSW), França e Argentina. Como designer de experiências estéticas e narrativas imersivas, concebeu projetos que expandem a percepção poética e espacial do público, como o áudio-guia "Polissonorum" (Oi), a curadoria e coordenação da linha do tempo do Museu da Língua Portuguesa, e as obras interativas "Amanhã" (para o Museu do Amanhã) e "Cidade Antigamente", esta última laureada como a melhor experiência de realidade virtual brasileira em 2016. Na direção e criação audiovisual, assina séries inventivas de forte relevância cultural, como "Garagem Maker" para o Canal Futura (indicada ao Prêmio TAL como melhor interprograma da América Latina) e "Inéditas, Dispersas e Animadas" para o Canal Brasil.</p>
+    <h3>Marcos Ferreira</h3>
+    <img class="bio-photo" src="Assets/IMG_5286.jpeg" alt="" loading="lazy" decoding="async">
+    <p>Marcos Ferreira é um Creative Technologist e desenvolvedor fluminense que há mais de quinze anos pesquisa as pontes possíveis entre a tecnologia, as narrativas artísticas e o impacto social. Em 2011, fundou a mobCONTENT, iniciativa voltada a acolher o vácuo existente entre o código computacional e a sensibilidade da produção cultural.</p>
+    <p>Seu trabalho recente debruça-se sobre a Inteligência Artificial sob uma perspectiva profundamente humanista e de reparação histórica. Por meio de projetos de artes visuais, jogos educacionais e intervenções imersivas — como o Museu da Memória Negra em IA, o Griô AI e a Galeria dos Feiticeiros (MUHCAB) —, Marcos utiliza as redes neurais e a tecnologia generativa para combater o racismo algorítmico, resgatar figuras invisibilizadas e decolonizar o olhar digital.</p>
   </div>
 
   <div class="bio bio-with-photo">
-    <h4>Diana de Hollanda Cavalcanti</h4>
-    <img class="bio-photo" src="Assets/IMG_5281.jpeg" alt="Diana de Hollanda Cavalcanti">
+    <h3>Diana de Hollanda</h3>
+    <img class="bio-photo" src="Assets/IMG_5281.jpeg" alt="" loading="lazy" decoding="async">
     <p>Escritora, dramaturga, diretora de teatro, parecerista e editora, possui doutorado em Poéticas da Cena pela UNIRIO, mestrado em Letras pela PUC-Rio e bacharelado em Direção Teatral pela UNIRIO, com uma trajetória dedicada às artes da palavra e da cena desde a infância. É autora do livro de poesias Dois que não o amor e do romance O Homem dos Patos (patrocinado pelo Petrobras Cultural), além de ter idealizado o projeto Versão Brasileira: a voz da mulher, que reuniu 47 poetas em coletânea, sarau, podcast e documentário de making-of. Desde 2014, acumula sólida atuação como parecerista em literatura e teatro, tendo analisado mais de 66 editais para instituições de prestígio como a Fundação Biblioteca Nacional, Funarte e FCC, cruzando a criação artística e a crítica cultural com enfoque feminista em plataformas presenciais e digitais.</p>
   </div>
 
   <div class="bio bio-with-photo">
-    <h4>Victória Benfica Marra Pasqual</h4>
-    <img class="bio-photo" src="Assets/IMG_5278.jpeg" alt="Victória Benfica Marra Pasqual">
-    <p>Psicóloga formada pela UFRJ com foco na articulação entre saúde, arte e cultura, atua no Centro de Cultura e Convivência Pedra Branca / Museu Bispo do Rosário de Arte Contemporânea, onde colabora na promoção da saúde mental em um modelo social sem manicômios. Integrante há quase dez anos do Laboratório de Sensibilidades e Devires (LSD) da Faculdade de Medicina da UFRJ, onde explora a experimentação artística coletiva, acumula uma trajetória prática na desinstitucionalização e promoção da autonomia como Acompanhante Terapêutica no CAPS III Arthur Bispo do Rosário e nos Serviços Residenciais Terapêuticos (SRTs). No campo da produção cultural e territorial, atuou como auxiliar de produção e oficineira no projeto Stella nas Ruas, reafirmando seu compromisso ético e político com a criação coletiva e a reparação histórica de sobreviventes do sistema manicomial através da arte.</p>
+    <h3>Victória Benfica Marra Pasqual</h3>
+    <img class="bio-photo" src="Assets/IMG_5278.jpeg" alt="" loading="lazy" decoding="async">
+    <p>Psicóloga formada pela UFRJ com foco na articulação entre saúde, arte e cultura, atua no CECCO Pedra Branca / Museu Bispo do Rosário de Arte Contemporânea, onde colabora na promoção da saúde mental em um modelo social sem manicômios. Integrante há quase dez anos do Laboratório de Sensibilidades e Devires (LSD) da Faculdade de Medicina da UFRJ, onde explora a experimentação artística coletiva, acumula uma trajetória prática na desinstitucionalização e promoção da autonomia como Acompanhante Terapêutica no CAPS III Arthur Bispo do Rosário e nos Serviços Residenciais Terapêuticos (SRTs). No campo da produção cultural e territorial, atuou como auxiliar de produção e oficineira no projeto Stella nas Ruas, reafirmando seu compromisso ético e político com a criação coletiva e a reparação histórica de sobreviventes do sistema manicomial através da arte.</p>
   </div>
 </div>
 
 <!-- ============================================================ -->
 <!-- CECCO PEDRA BRANCA — FOTO -->
 <!-- ============================================================ -->
-<section class="art-page">
-  <img src="Assets/IMG_4639.jpeg" alt="Grupo de participantes e equipe na frente do Centro de Cultura e Convivência Pedra Branca.">
+<section class="art-page print-break" id="img-cecco">
+  <figure>
+    <img src="Assets/IMG_4639.jpeg" alt="" loading="lazy" decoding="async">
+    <figcaption>Grupo de participantes e equipe na frente do CECCO Pedra Branca.</figcaption>
+  </figure>
 </section>
 
 <!-- ============================================================ -->
-<!-- O CECO PEDRA BRANCA -->
+<!-- CECCO PEDRA BRANCA -->
 <!-- ============================================================ -->
 <div class="page institutional" id="ceco">
-  <h2 class="section-title">O Centro de Cultura e Convivência Pedra Branca</h2>
-  <p>Os Centros de Cultura e Convivência (CECOs) são dispositivos do Sistema Único de Saúde (SUS) que surgem a partir da Luta Antimanicomial e da Reforma Psiquiátrica Brasileira. Sua existência afirma uma compreensão radical de que o cuidado em saúde não se produz pelo isolamento, pela tutela ou pela segregação, mas pela participação na vida coletiva, pela circulação na cidade, pela construção de vínculos e pelo acesso à arte, à cultura, ao trabalho, ao lazer e aos direitos.</p>
-  <p>Os CECOs promovem saúde a partir da arte, cultura e convivência. Lugares onde pessoas com diferentes trajetórias de vida podem se encontrar, compartilhar experiências e construir formas de pertencimento. Neles, a diversidade não é um desafio a ser superado, mas uma condição fundamental. A convivência entre diferentes modos de existir é entendida como uma potente tecnologia de cuidado.</p>
-  <p>O Centro de Cultura e Convivência Pedra Branca foi o primeiro CECO do município do Rio de Janeiro. Localizado na Colônia Juliano Moreira, território que hoje constitui um bairro da cidade marcado pela história da assistência psiquiátrica brasileira. Durante décadas, a Colônia foi um dos maiores complexos manicomiais da América Latina, internando milhares de pessoas que tiveram suas vidas atravessadas pelo confinamento e pela exclusão.</p>
-  <p>É justamente nesse território, carregado de memórias e contradições, que o CECO Pedra Branca desenvolve seu trabalho. Atualmente instalado no Espaço Maria Rosenda, uma das antigas casas do Núcleo Franco da Rocha, o último núcleo do manicômio a ser fechado, o serviço ressignifica cotidianamente um lugar antes destinado ao isolamento, transformando-o em espaço de encontro, criação e alargamento das possibilidades de vida.</p>
-  <p>Como equipamento do SUS, o CECO Pedra Branca funciona de segunda a sexta-feira e oferece atividades gratuitas e abertas a toda a comunidade. Oficinas artísticas, práticas corporais, saídas culturais, ações comunitárias, eventos, assembleias e projetos coletivos compõem um cotidiano marcado pela participação e pelo compartilhamento de experiências.</p>
-  <p>Convivem diariamente no CECO PB pessoas deste território marcado por diversas violências em um contexto de vulnerabilidade psicossocial. Assim, cotidianamente o serviço recebe pessoas em situação de rua, moradores da comunidade, usuários de outros serviços da Rede de Atenção Psicossocial, trabalhadores, artistas, aposentadas que carregam as memórias de terem trabalhado nos antigos hospitais psiquiátricos, pessoas que viveram longos períodos de internação, crianças, jovens e idosos. Essa heterogeneidade constitui uma das maiores riquezas do espaço.</p>
-  <p>No CECO, a convivência não acontece apesar das diferenças, mas através delas. É no encontro entre histórias, experiências e modos distintos de habitar o mundo que surgem novas possibilidades de participação, reconhecimento e produção de vida.</p>
+  <h2 class="section-title">CECCO Pedra Branca</h2>
+  <p>Os Centros de Cultura e Convivência (CECCOs) são dispositivos do Sistema Único de Saúde (SUS) que surgem a partir da Luta Antimanicomial e da Reforma Psiquiátrica Brasileira. Sua existência afirma uma compreensão radical de que o cuidado em saúde não se produz pelo isolamento, pela tutela ou pela segregação, mas pela participação na vida coletiva, pela circulação na cidade, pela construção de vínculos e pelo acesso à arte, à cultura, ao trabalho, ao lazer e aos direitos.</p>
+  <p>Os CECCOs promovem saúde a partir da arte, cultura e convivência. Lugares onde pessoas com diferentes trajetórias de vida podem se encontrar, compartilhar experiências e construir formas de pertencimento. Neles, a diversidade não é um desafio a ser superado, mas uma condição fundamental. A convivência entre diferentes modos de existir é entendida como uma potente tecnologia de cuidado.</p>
+  <p>CECCO Pedra Branca foi o primeiro CECCO do município do Rio de Janeiro. Localizado na Colônia Juliano Moreira, território que hoje constitui um bairro da cidade marcado pela história da assistência psiquiátrica brasileira. Durante décadas, a Colônia foi um dos maiores complexos manicomiais da América Latina, internando milhares de pessoas que tiveram suas vidas atravessadas pelo confinamento e pela exclusão.</p>
+  <p>É justamente nesse território, carregado de memórias e contradições, que o CECCO Pedra Branca desenvolve seu trabalho. Atualmente instalado no Espaço Maria Rosenda, uma das antigas casas do Núcleo Franco da Rocha, o último núcleo do manicômio a ser fechado, o serviço ressignifica cotidianamente um lugar antes destinado ao isolamento, transformando-o em espaço de encontro, criação e alargamento das possibilidades de vida.</p>
+  <p>Como equipamento do SUS, o CECCO Pedra Branca funciona de segunda a sexta-feira e oferece atividades gratuitas e abertas a toda a comunidade. Oficinas artísticas, práticas corporais, saídas culturais, ações comunitárias, eventos, assembleias e projetos coletivos compõem um cotidiano marcado pela participação e pelo compartilhamento de experiências.</p>
+  <p>Convivem diariamente no CECCO Pedra Branca pessoas deste território marcado por diversas violências em um contexto de vulnerabilidade psicossocial. Assim, cotidianamente o serviço recebe pessoas em situação de rua, moradores da comunidade, usuários de outros serviços da Rede de Atenção Psicossocial, trabalhadores, artistas, aposentadas que carregam as memórias de terem trabalhado nos antigos hospitais psiquiátricos, pessoas que viveram longos períodos de internação, crianças, jovens e idosos. Essa heterogeneidade constitui uma das maiores riquezas do espaço.</p>
+  <p>No CECCO Pedra Branca, a convivência não acontece apesar das diferenças, mas através delas. É no encontro entre histórias, experiências e modos distintos de habitar o mundo que surgem novas possibilidades de participação, reconhecimento e produção de vida.</p>
   <p>É também nesse contexto que é possível receber o projeto Diário de Bordo. Ao incentivar a escrita, a memória, a imaginação e a expressão de experiências singulares, a oficina reafirma um dos compromissos centrais dos Centros de Cultura e Convivência: ampliar as possibilidades de existência dos conviventes. Escrever sobre si, registrar percursos, inventar narrativas e compartilhar histórias são formas de ocupar a própria vida com palavras, produzir sentidos sobre a experiência e afirmar a potência de cada trajetória, em coletivo.</p>
-  <p>Este livro é fruto desse encontro. Reúne vozes diversas que encontraram na escrita um espaço de criação, escuta e liberdade. Assim como o CECO Pedra Branca, ele aposta que toda vida merece ser contada, compartilhada e reconhecida em sua singularidade.</p>
+  <p>Este livro é fruto desse encontro. Reúne vozes diversas que encontraram na escrita um espaço de criação, escuta e liberdade. Assim como o CECCO Pedra Branca, ele aposta que toda vida merece ser contada, compartilhada e reconhecida em sua singularidade.</p>
 </div>
 
 <!-- ============================================================ -->
@@ -1417,26 +1749,19 @@ O que vem é a nova era de encarar os meus desejos de escrever. Foi muito bom le
   <p>A mobCONTENT é uma empresa de vanguarda sediada no Rio de Janeiro, fundada pelo engenheiro criativo Marcos Ferreira, que atua na confluência vital entre criatividade, tecnologia e cultura. Movida pela missão de usar a inovação para inventar um jeito novo de contar histórias, a produtora consolidou-se como especialista no desenvolvimento de Inteligência Artificial Generativa, vídeos, aplicativos e jogos. Seu pioneirismo e excelência técnica são chancelados por reconhecimentos de prestígio internacional, como o prêmio Young Creative Entrepreneur do British Council e o destaque como empresa de referência no evento Power To The Pixel, em Londres, além de premiações de impacto como o de Melhor Aplicativo de Internet das Coisas (IoT) pelo app oficial do Museu do Amanhã e Melhor Aplicativo de Realidade Virtual pelo software "Cidade Antigamente". Mais do que o domínio puramente técnico, a mobCONTENT orienta sua trajetória pelas Humanidades Digitais e pelo impacto social, utilizando as ferramentas digitais como pontes humanizadas para democratizar o acesso à memória, combater apagamentos históricos e amplificar vozes que necessitam urgentemente ser ouvidas.</p>
 
   <ul class="links-list">
-    <li><a href="https://stella-iota.vercel.app/" target="_blank" rel="noopener">stella-iota.vercel.app</a></li>
-    <li><a href="https://www.mobcontent.com.br/" target="_blank" rel="noopener">www.mobcontent.com.br</a></li>
-    <li><a href="https://marcosferreira.art.br/" target="_blank" rel="noopener">marcosferreira.art.br</a></li>
+    <li><a href="https://stella-iota.vercel.app/" target="_blank" rel="noopener noreferrer">Projeto Stella nas Ruas — stella-iota.vercel.app<span class="visually-hidden"> (abre em nova aba)</span></a></li>
+    <li><a href="https://www.mobcontent.com.br/" target="_blank" rel="noopener noreferrer">mobCONTENT — www.mobcontent.com.br<span class="visually-hidden"> (abre em nova aba)</span></a></li>
+    <li><a href="https://marcosferreira.art.br/" target="_blank" rel="noopener noreferrer">Marcos Ferreira — marcosferreira.art.br<span class="visually-hidden"> (abre em nova aba)</span></a></li>
   </ul>
 </div>
 
 <!-- ============================================================ -->
-<!-- DIÁRIO DE BORDO — RUTH -->
+<!-- EPÍGRAFE FINAL — STELLA -->
 <!-- ============================================================ -->
-<section class="art-page art-page--text">
-  <img src="Assets/ruth2.png" alt="Desenho de pássaro com texto manuscrito: Os paralelepípedos tocando o chão, a chuva caindo na noite ou na madrugada e as folhas molhadas.">
-</section>
-
-<!-- ============================================================ -->
-<!-- CONTRACAPA / EPÍGRAFE -->
-<!-- ============================================================ -->
-<section class="epigraph-page" id="contracapa">
+<section class="epigraph-page print-break" id="epigrafe-final" aria-label="Epígrafe final">
   <div class="epigraph">
 
-    <div class="color-bar">
+    <div class="color-bar" aria-hidden="true">
       <div class="dash d1"></div>
       <div class="dash d2"></div>
       <div class="dash d3"></div>
@@ -1448,17 +1773,14 @@ O que vem é a nova era de encarar os meus desejos de escrever. Foi muito bom le
       <div class="dash d9"></div>
     </div>
 
-    <div class="quote-container">
-      <span class="quote-mark">&ldquo;</span>
+    <blockquote class="quote-container" cite="https://pt.wikipedia.org/wiki/Stella_do_Patroc%C3%ADnio">
       <p class="quote-text">
         Eu já falei em excesso, em acesso, muito e demais, declarei expliquei esclareci tudo, falei tudo que tinha que falar.
       </p>
-      <div class="quote-author">
-        <span class="em-dash">—</span> Stella do Patrocínio
-      </div>
-    </div>
+      <footer class="quote-author">Stella do Patrocínio</footer>
+    </blockquote>
 
-    <div class="color-bar">
+    <div class="color-bar" aria-hidden="true">
       <div class="dash d1"></div>
       <div class="dash d2"></div>
       <div class="dash d3"></div>
@@ -1473,8 +1795,74 @@ O que vem é a nova era de encarar os meus desejos de escrever. Foi muito bom le
   </div>
 </section>
 
+<!-- ============================================================ -->
+<!-- CONTRACAPA -->
+<!-- ============================================================ -->
+<section class="back-cover print-break" id="contracapa" aria-label="Contracapa">
+  <div class="back-cover-inner">
+
+    <div class="back-cover-main">
+      <p class="back-cover-eyebrow">Diários de Bordo</p>
+      <h2 class="back-cover-title">Fabulações e Travessias</h2>
+
+      <div class="back-cover-dash-row" aria-hidden="true">
+        <span class="back-cover-dash"></span>
+        <span class="back-cover-dash"></span>
+        <span class="back-cover-dash"></span>
+        <span class="back-cover-dash"></span>
+        <span class="back-cover-dash"></span>
+        <span class="back-cover-dash"></span>
+        <span class="back-cover-dash"></span>
+        <span class="back-cover-dash"></span>
+      </div>
+
+      <p class="back-cover-question">O que acontece quando os muros do silenciamento dão lugar à potência da palavra viva?</p>
+
+      <div class="back-cover-body">
+        <p>Diários de Bordo: Fabulações e Travessias é o registro de uma jornada literária realizada no CECCO Pedra Branca, em Jacarepaguá. No mesmo território que historicamente abrigou a antiga Colônia Juliano Moreira — onde viveu a poeta Stella do Patrocínio —, este livro nasce como um manifesto de liberdade, afeto e reparação através da arte.</p>
+        <p>Guiados pela premissa de que toda vida dá um livro, os participantes transformaram suas vivências em metáforas, contos e poesias. A escrita uniu o calor do processo analógico ao suporte inédito do Fabulador, uma inteligência artificial customizada que atuou como co-piloto criativo para destravar bloqueios e expandir a imaginação do grupo.</p>
+        <p>Esta obra polifônica e coletiva convida você a navegar por mentes livres. É a prova definitiva de que, no coração da Reforma Psiquiátrica, o afeto e a literatura têm o poder de ressignificar o passado e semear novos futuros.</p>
+      </div>
+    </div>
+
+    <footer class="back-cover-epigraph">
+      <div class="color-bar" aria-hidden="true">
+        <div class="dash d1"></div>
+        <div class="dash d2"></div>
+        <div class="dash d3"></div>
+        <div class="dash d4"></div>
+        <div class="dash d5"></div>
+        <div class="dash d6"></div>
+        <div class="dash d7"></div>
+        <div class="dash d8"></div>
+        <div class="dash d9"></div>
+      </div>
+
+      <blockquote class="quote-container" cite="https://pt.wikipedia.org/wiki/Stella_do_Patroc%C3%ADnio">
+        <p class="quote-text">A realidade é essa folha esse banco essa terra essa árvore, é esse prédio de dois andares essas roupas estendidas na muralha.</p>
+        <footer class="quote-author">Stella do Patrocínio</footer>
+      </blockquote>
+
+      <div class="color-bar" aria-hidden="true">
+        <div class="dash d1"></div>
+        <div class="dash d2"></div>
+        <div class="dash d3"></div>
+        <div class="dash d4"></div>
+        <div class="dash d5"></div>
+        <div class="dash d6"></div>
+        <div class="dash d7"></div>
+        <div class="dash d8"></div>
+        <div class="dash d9"></div>
+      </div>
+    </footer>
+
+  </div>
+</section>
+
+</main>
+
 <footer class="colophon">
-  Diários de Bordo: Fabulações e Travessias — Antologia Coletiva de Contos e Poemas<br>
+  Diários de Bordo: Fabulações e Travessias — Coletânea de Contos e Poemas<br>
   Governo do Estado do Rio de Janeiro · Secretaria de Estado de Cultura e Economia Criativa · Edital Literatura Resiste
 </footer>
 
